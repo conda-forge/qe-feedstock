@@ -1,5 +1,5 @@
 #!/bin/bash
-./configure --prefix=${PREFIX} \
+./configure --prefix=${PREFIX} --with-libxc \
             ARCH="x86_64" \
             FOX_LIB="-L${PREFIX}/lib -lFoX_dom -lFoX_sax -lFoX_wxml -lFoX_common -lFoX_utils -lFoX_fsys " \
             IFLAGS="-I${SRC_DIR}/include -I${PREFIX}/finclude -I${SRC_DIR}/S3DE/iotk/include/" \
@@ -7,6 +7,7 @@
             LAPACK_LIBS="-L${PREFIX}/lib -llapack" \
             BLAS_LIBS="-L${PREFIX}/lib -lblas" \
             FFT_LIBS="-L${PREFIX}/lib -lfftw3" \
+            XC_LIBS="-L${PREFIX}/lib -lxcf90 -lxc" \
             CC="${CC}" \
             CPP="${CPP}" \
             LD="mpif90 -fopenmpi -fopenmp" \
