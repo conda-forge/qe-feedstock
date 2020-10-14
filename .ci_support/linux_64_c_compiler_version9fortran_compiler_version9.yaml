@@ -1,0 +1,34 @@
+c_compiler:
+- gcc
+c_compiler_version:
+- '9'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+docker_image:
+- condaforge/linux-anvil-comp7
+fftw:
+- '3'
+fortran_compiler:
+- gfortran
+fortran_compiler_version:
+- '9'
+libblas:
+- 3.8 *netlib
+libcblas:
+- 3.8 *netlib
+liblapack:
+- 3.8.0 *netlib
+liblapacke:
+- 3.8.0 *netlib
+openmpi:
+- '4.0'
+pin_run_as_build:
+  fftw:
+    max_pin: x
+target_platform:
+- linux-64
+zip_keys:
+- - c_compiler_version
+  - fortran_compiler_version

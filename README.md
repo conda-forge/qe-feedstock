@@ -5,9 +5,13 @@ Home: http://www.quantum-espresso.org
 
 Package license: GPL-2.0-only
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qe-feedstock/blob/master/LICENSE.txt)
 
 Summary: QUANTUM ESPRESSO (opEn-Source Package for Research in Electronic Structure, Simulation, and Optimization)
+
+Development: https://github.com/QEF/q-e
+
+Documentation: http://www.quantum-espresso.org/Doc/user_guide/
 
 QUANTUM ESPRESSO is an integrated suite of Open-Source computer
 codes for electronic-structure calculations and materials modeling
@@ -33,34 +37,23 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux</td>
+              <td>linux_64_c_compiler_version7fortran_compiler_version7</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9414&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qe-feedstock?branchName=master&jobName=linux&configuration=linux_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qe-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version7fortran_compiler_version7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_c_compiler_version9fortran_compiler_version9</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9414&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qe-feedstock?branchName=master&jobName=linux&configuration=linux_64_c_compiler_version9fortran_compiler_version9" alt="variant">
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>OSX</td>
-    <td>
-      <img src="https://img.shields.io/badge/OSX-disabled-lightgrey.svg" alt="OSX disabled">
-    </td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
-    </td>
-  </tr>
-  <tr>
-    <td>Linux_ppc64le</td>
-    <td>
-      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
     </td>
   </tr>
 </table>
