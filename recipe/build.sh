@@ -13,5 +13,5 @@
             CFLAGS="${CFLAGS}" \
             FFLAGS="${FFLAGS}" \
             CPPFLAGS="${CPPFLAGS}" 
- make pwall
+ make all
  make install
