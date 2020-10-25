@@ -14,4 +14,5 @@
             FFLAGS="${FFLAGS}" \
             CPPFLAGS="${CPPFLAGS}" 
  make pwall
+ make ld1
  make install
