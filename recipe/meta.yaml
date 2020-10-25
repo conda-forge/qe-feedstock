@@ -1,5 +1,5 @@
 {% set name = "qe" %}
-{% set version = "6.5" %}
+{% set version = "6.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
-  sha256: 258b2a8a6280e86dad779e5c56356d8b35dc96d12ff33dabeee914bc03d6d602
+  sha256: 924656cb083f52e5d2fe71ade05881389dac64b45316f1bdd6dee1c6170a672c
 
 build:
-  number: 1
+  number: 0
   skip: true  # [not linux]
 
 requirements:
