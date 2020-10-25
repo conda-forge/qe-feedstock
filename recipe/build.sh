@@ -10,4 +10,7 @@
             FFLAGS="${FFLAGS} -L${PREFIX}/lib -lfftw3 -lblas -llapack -lscalapack" \
             CPPFLAGS="${CPPFLAGS} -L${PREFIX}/lib -lfftw3 -lblas -llapack -lscalapack" 
  make pwall
+ make upf
+ make ld1
+ make cp
  make install
