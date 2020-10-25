@@ -38,7 +38,6 @@ test:
   commands:
     - test -f ${PREFIX}/bin/path_interpolation.x
     - test -f ${PREFIX}/bin/neb.x
-    - test -f ${PREFIX}/bin/fd_ef.x
     - test -f ${PREFIX}/bin/fd.x
     - test -f ${PREFIX}/bin/fd_ifc.x
     - test -f ${PREFIX}/bin/alpha2f.x
