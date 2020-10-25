@@ -16,4 +16,3 @@ make pwall
 make ld1
 make cp
 make install
-ls ${PREFIX}/bin
