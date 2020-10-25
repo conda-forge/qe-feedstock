@@ -12,7 +12,8 @@
             CFLAGS="${CFLAGS} -L${PREFIX}/lib -lfftw3" \
             FFLAGS="${FFLAGS} -L${PREFIX}/lib -lfftw3" \
             CPPFLAGS="${CPPFLAGS} -L${PREFIX}/lib -lfftw3" 
- make pwall
- make ld1
- make cp
- make install
+make pwall
+make ld1
+make cp
+make install
+ls ${PREFIX}/bin
