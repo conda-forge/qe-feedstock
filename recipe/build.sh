@@ -15,4 +15,6 @@
             CPPFLAGS="${CPPFLAGS}" 
  make pwall
  make upf
+ make ld1
+ make cp
  make install
