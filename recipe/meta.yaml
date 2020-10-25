@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
   sha256: 924656cb083f52e5d2fe71ade05881389dac64b45316f1bdd6dee1c6170a672c
-  patches:
-    - fftw.patch
 
 build:
   number: 0
