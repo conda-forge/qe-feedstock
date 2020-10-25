@@ -6,15 +6,13 @@
             SCALAPACK_LIBS="-L${PREFIX}/lib -lscalapack" \
             LAPACK_LIBS="-L${PREFIX}/lib -llapack" \
             BLAS_LIBS="-L${PREFIX}/lib -lblas" \
-            FFT_LIBS="-L${PREFIX}/lib -lfftw3" \
             CC="${CC}" \
             CPP="${CPP}" \
             LD="mpif90 -fopenmpi -fopenmp" \
-            CFLAGS="${CFLAGS}" \
-            FFLAGS="${FFLAGS}" \
-            CPPFLAGS="${CPPFLAGS}" 
- make pwall
- make upf
- make ld1
- make cp
- make install
+            CFLAGS="${CFLAGS} -L${PREFIX}/lib -lfftw3" \
+            FFLAGS="${FFLAGS} -L${PREFIX}/lib -lfftw3" \
+            CPPFLAGS="${CPPFLAGS} -L${PREFIX}/lib -lfftw3" 
+make pwall
+make ld1
+make cp
+make install
