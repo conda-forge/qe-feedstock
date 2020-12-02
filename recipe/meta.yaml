@@ -54,8 +54,6 @@ test:
     - test -f ${PREFIX}/bin/fs.x
     - test -f ${PREFIX}/bin/ibrav2cell.x
     - test -f ${PREFIX}/bin/initial_state.x
-    - test -f ${PREFIX}/bin/iotk_print_kinds.x
-    - test -f ${PREFIX}/bin/iotk.x
     - test -f ${PREFIX}/bin/kpoints.x
     - test -f ${PREFIX}/bin/lambda.x
     - test -f ${PREFIX}/bin/ld1.x
