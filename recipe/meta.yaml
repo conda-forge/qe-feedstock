@@ -1,5 +1,5 @@
 {% set name = "qe" %}
-{% set version = "6.6" %}
+{% set version = "6.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
-  sha256: 924656cb083f52e5d2fe71ade05881389dac64b45316f1bdd6dee1c6170a672c
+  sha256: 11364f931894555f296f176ca91757f9a8d510f8e5264ced60e82e11c6de725f
 
 build:
   number: 0
@@ -20,7 +20,7 @@ requirements:
     - openmpi-mpifort
     - make
   host:
-    - fftw 
+    - fftw
     - fox
     - libblas
     - libcblas
@@ -30,7 +30,7 @@ requirements:
     - openmpi
     - scalapack
   run:
-    - fftw  
+    - fftw
     - openmpi
     - scalapack
 
@@ -54,8 +54,6 @@ test:
     - test -f ${PREFIX}/bin/fs.x
     - test -f ${PREFIX}/bin/ibrav2cell.x
     - test -f ${PREFIX}/bin/initial_state.x
-    - test -f ${PREFIX}/bin/iotk_print_kinds.x
-    - test -f ${PREFIX}/bin/iotk.x
     - test -f ${PREFIX}/bin/kpoints.x
     - test -f ${PREFIX}/bin/lambda.x
     - test -f ${PREFIX}/bin/ld1.x
@@ -101,7 +99,7 @@ about:
   license: GPL-2.0-only
   license_family: GPL
   license_file: License
-  summary: 'QUANTUM ESPRESSO (opEn-Source Package for Research in Electronic Structure, Simulation, and Optimization)'
+  summary: QUANTUM ESPRESSO (opEn-Source Package for Research in Electronic Structure, Simulation, and Optimization)
 
   description: |
     QUANTUM ESPRESSO is an integrated suite of Open-Source computer 
@@ -115,4 +113,4 @@ extra:
   recipe-maintainers:
     - jan-janssen
     - certik
-    - wolfv 
+    - wolfv
