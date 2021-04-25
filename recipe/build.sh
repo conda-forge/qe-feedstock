@@ -16,6 +16,9 @@ make pwall
 make ld1
 make cp
 
-make test-suite
+# see https://gitlab.com/QEF/q-e/-/blob/develop/test-suite/Makefile
+cd test-suite
+make run-travis
+cd ..
 
 make install
