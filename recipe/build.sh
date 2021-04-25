@@ -1,4 +1,13 @@
 #!/bin/bash
+
+
+# Add -E to cppflags
+# https://stackoverflow.com/a/36669345/1069467
+if [[ ! -z "$MACOSX_DEPLOYMENT_TARGET" ]]; then
+  CPPFLAGS="${CPPFLAGS} -E"
+fi
+
+
 ./configure --prefix=${PREFIX} \
             ARCH="x86_64" \
             FOX_LIB="-L${PREFIX}/lib -lFoX_dom -lFoX_sax -lFoX_wxml -lFoX_common -lFoX_utils -lFoX_fsys " \
