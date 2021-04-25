@@ -15,4 +15,7 @@
 make pwall
 make ld1
 make cp
+
+make test-suite
+
 make install
