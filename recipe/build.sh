@@ -20,10 +20,11 @@ export FPP="${FC} -E -P -cpp"
             BLAS_LIBS="-L${PREFIX}/lib -lblas" \
             CC="${CC}" \
             CPP="${CPP}" \
-            LD="mpif90 -fopenmp" \
-            CFLAGS="${CFLAGS} -L${PREFIX}/lib -lfftw3" \
-            FFLAGS="${FFLAGS} -L${PREFIX}/lib -lfftw3" \
-            CPPFLAGS="${CPPFLAGS} -L${PREFIX}/lib -lfftw3" 
+            LD="mpif90" \
+            CFLAGS="${CFLAGS}" \
+            FFLAGS="${FFLAGS}" \
+            CPPFLAGS="${CPPFLAGS}" \
+            LDFLAGS="${LDFLAGS} -fopenmp -L${PREFIX}/lib -lfftw3" 
 make pwall
 make ld1
 make cp

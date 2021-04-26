@@ -94,7 +94,6 @@ test:
     - test -f ${PREFIX}/bin/wfck2r.x
     - test -f ${PREFIX}/bin/wfdd.x
     - test -f ${PREFIX}/bin/xctest_qe_libxc.x
-    - mpiexec -mca plm isolated pw.x --help
 
 about:
   home: http://www.quantum-espresso.org
