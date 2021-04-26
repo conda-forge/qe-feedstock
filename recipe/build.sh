@@ -1,30 +1,30 @@
 #!/bin/bash
 
+export ARCH="x86_64"
+export FOX_LIB="-L${PREFIX}/lib -lFoX_dom -lFoX_sax -lFoX_wxml -lFoX_common -lFoX_utils -lFoX_fsys "
+export IFLAGS="-I${SRC_DIR}/include -I${PREFIX}/finclude -I${SRC_DIR}/S3DE/iotk/include/"
+export BLAS_LIBS="-L${PREFIX}/lib -lblas"
+export SCALAPACK_LIBS="-L${PREFIX}/lib -lscalapack"
+export LAPACK_LIBS="-L${PREFIX}/lib -llapack"
+export FFT_LIBS="-L${PREFIX}/lib -lfftw3"
 
-# Add -E to cppflags
-# https://stackoverflow.com/a/36669345/1069467
+# Override C and Fortran preprocessor
 export CPP="${CC} -E -P"
 export FPP="${FC} -E -P -cpp"
+#export CPPFLAGS="${CPPFLAGS}"
 
+#export CC="${CC}"
+export CFLAGS="${CFLAGS} -fopenmp"
+#export FC="${FC}"
+export FFLAGS="${FFLAGS} -fopenmp"
+export LD="mpif90"
+export LDFLAGS="${LDFLAGS} -fopenmp"
 
-#if [[ ! -z "$MACOSX_DEPLOYMENT_TARGET" ]]; then
-#  CPPFLAGS="${CPPFLAGS} -E"
-#fi
+./configure \
+    --prefix=${PREFIX} \
+    --enable-parallel \
+    --enable-openmp
 
-./configure --prefix=${PREFIX} \
-            ARCH="x86_64" \
-            FOX_LIB="-L${PREFIX}/lib -lFoX_dom -lFoX_sax -lFoX_wxml -lFoX_common -lFoX_utils -lFoX_fsys " \
-            IFLAGS="-I${SRC_DIR}/include -I${PREFIX}/finclude -I${SRC_DIR}/S3DE/iotk/include/" \
-            SCALAPACK_LIBS="-L${PREFIX}/lib -lscalapack" \
-            LAPACK_LIBS="-L${PREFIX}/lib -llapack" \
-            BLAS_LIBS="-L${PREFIX}/lib -lblas" \
-            CC="${CC}" \
-            CPP="${CPP}" \
-            LD="mpif90" \
-            CFLAGS="${CFLAGS} -fopenmp" \
-            FFLAGS="${FFLAGS} -fopenmp" \
-            CPPFLAGS="${CPPFLAGS}" \
-            LDFLAGS="${LDFLAGS} -fopenmp -Wl,-L${PREFIX}/lib,-lfftw3" 
 make pwall
 make ld1
 make cp
