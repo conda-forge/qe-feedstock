@@ -7,6 +7,7 @@ export BLAS_LIBS="-L${PREFIX}/lib -lblas"
 export SCALAPACK_LIBS="-L${PREFIX}/lib -lscalapack"
 export LAPACK_LIBS="-L${PREFIX}/lib -llapack"
 export FFT_LIBS="-L${PREFIX}/lib -lfftw3"
+export MANUAL_DFLAGS="-D__FFTW3"
 
 # Override C and Fortran preprocessor
 export CPP="${CC} -E -P"
