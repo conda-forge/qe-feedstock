@@ -3,10 +3,13 @@
 
 # Add -E to cppflags
 # https://stackoverflow.com/a/36669345/1069467
-if [[ ! -z "$MACOSX_DEPLOYMENT_TARGET" ]]; then
-  CPPFLAGS="${CPPFLAGS} -E"
-fi
+export CPP="${CC} -E -P"
+export FPP="${FC} -E -P -cpp"
 
+
+#if [[ ! -z "$MACOSX_DEPLOYMENT_TARGET" ]]; then
+#  CPPFLAGS="${CPPFLAGS} -E"
+#fi
 
 ./configure --prefix=${PREFIX} \
             ARCH="x86_64" \
