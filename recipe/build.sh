@@ -23,7 +23,8 @@ export LDFLAGS="${LDFLAGS} -fopenmp"
 ./configure \
     --prefix=${PREFIX} \
     --enable-parallel \
-    --enable-openmp
+    --enable-openmp \
+    --with-scalapack
 
 make pwall
 make ld1
