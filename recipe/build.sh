@@ -1,13 +1,13 @@
 #!/bin/bash
 
 export ARCH="x86_64"
-export FOX_LIB="-Wl,-L${PREFIX}/lib,-lFoX_dom,-lFoX_sax,-lFoX_wxml,-lFoX_common,-lFoX_utils,-lFoX_fsys "
+export FOX_LIB="-L${PREFIX}/lib -lFoX_dom -lFoX_sax -lFoX_wxml -lFoX_common -lFoX_utils -lFoX_fsys "
 export IFLAGS="-I${SRC_DIR}/include -I${PREFIX}/finclude -I${SRC_DIR}/S3DE/iotk/include/"
 export LIBDIRS="${PREFIX}/lib"
-export BLAS_LIBS="-Wl,-lblas"
-export SCALAPACK_LIBS="-Wl,-lscalapack"
-export LAPACK_LIBS="-Wl,-llapack"
-export FFT_LIBS="-Wl,-L${PREFIX}/lib -Wl,-lfftw3"
+export BLAS_LIBS="-lblas"
+export SCALAPACK_LIBS="-lscalapack"
+export LAPACK_LIBS="-llapack"
+export FFT_LIBS="-lfftw3_omp -lfftw3 -lm"
 export FFTW_INCLUDE="-I${PREFIX}/include"
 export MANUAL_DFLAGS="-D__FFTW3"
 
