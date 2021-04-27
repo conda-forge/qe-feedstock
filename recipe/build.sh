@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 export ARCH="x86_64"
 export FOX_LIB="-L${PREFIX}/lib -lFoX_dom -lFoX_sax -lFoX_wxml -lFoX_common -lFoX_utils -lFoX_fsys "
@@ -33,6 +34,9 @@ make pwall
 make ld1
 make cp
 make epw
+
+# needed to run tests with openmpi without ssh present
+export OMPI_MCA_plm_rsh_agent=sh
 
 # see https://gitlab.com/QEF/q-e/-/blob/develop/test-suite/Makefile
 cd test-suite
