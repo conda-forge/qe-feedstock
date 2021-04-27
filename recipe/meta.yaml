@@ -18,14 +18,14 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - openmpi-mpifort
-    - make
+    - cmake
+    - libgomp  # [linux]
+    - llvm-openmp  # [osx]
   host:
     - fftw
     - fox
     - libblas
     - libcblas
-    - libgomp  # [linux]
-    - llvm-openmp  # [osx]
     - liblapack
     - liblapacke
     - openmpi
