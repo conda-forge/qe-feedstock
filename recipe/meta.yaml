@@ -10,7 +10,7 @@ source:
   sha256: 11364f931894555f296f176ca91757f9a8d510f8e5264ced60e82e11c6de725f
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -115,3 +115,4 @@ extra:
     - jan-janssen
     - certik
     - wolfv
+    - ltalirz
