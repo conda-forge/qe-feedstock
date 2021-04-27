@@ -11,20 +11,22 @@ source:
 
 build:
   number: 1
-  skip: true  # [not linux]
+  skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - openmpi-mpifort
-    - make
+    - cmake
+    - libgomp  # [linux]
+    - llvm-openmp  # [osx]
+    - wget
   host:
     - fftw
     - fox
     - libblas
     - libcblas
-    - libgomp
     - liblapack
     - liblapacke
     - openmpi
