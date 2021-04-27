@@ -30,10 +30,10 @@
 mkdir build
 cd build
 cmake .. \
-    -DQE_ENABLE_MPI \
-    -DQE_ENABLE_OPENMP \
-    -DQE_ENABLE_SCALAPACK \
-    -DQE_ENABLE_TEST
+    -DQE_ENABLE_MPI=ON \
+    -DQE_ENABLE_OPENMP=ON \
+    -DQE_ENABLE_SCALAPACK=ON \
+    -DQE_ENABLE_TEST=ON
     
 make
 
