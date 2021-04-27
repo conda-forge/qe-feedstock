@@ -27,6 +27,10 @@
 #    --enable-openmp \
 #    --with-scalapack
 
+# download fox
+rm -rf external/fox
+git clone https://github.com/pietrodelugas/fox/tree/819745f5849de5c9de516be133ab206691738257 external/fox
+
 mkdir build
 cd build
 cmake .. \
