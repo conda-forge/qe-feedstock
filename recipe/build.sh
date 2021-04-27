@@ -7,7 +7,7 @@ export LIBDIRS="${PREFIX}/lib"
 export BLAS_LIBS="-lblas"
 export SCALAPACK_LIBS="-lscalapack"
 export LAPACK_LIBS="-llapack"
-export FFT_LIBS="fftw3"
+export FFT_LIBS="-lfftw3"
 export FFTW_INCLUDE="-I${PREFIX}/include"
 export MANUAL_DFLAGS="-D__FFTW3"
 
