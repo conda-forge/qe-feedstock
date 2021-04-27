@@ -21,6 +21,7 @@ requirements:
     - cmake
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
+    - wget
   host:
     - fftw
     - fox
