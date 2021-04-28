@@ -10,8 +10,8 @@ source:
   sha256: 11364f931894555f296f176ca91757f9a8d510f8e5264ced60e82e11c6de725f
 
 build:
-  number: 1
-  skip: true  # [not linux]
+  number: 2
+  skip: true  # [win]
 
 requirements:
   build:
@@ -24,7 +24,8 @@ requirements:
     - fox
     - libblas
     - libcblas
-    - libgomp
+    - libgomp  # [linux]
+    - llvm-openmp  # [osx]
     - liblapack
     - liblapacke
     - openmpi
@@ -114,3 +115,4 @@ extra:
     - jan-janssen
     - certik
     - wolfv
+    - ltalirz
