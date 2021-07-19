@@ -153,5 +153,6 @@ Feedstock Maintainers
 
 * [@certik](https://github.com/certik/)
 * [@jan-janssen](https://github.com/jan-janssen/)
+* [@ltalirz](https://github.com/ltalirz/)
 * [@wolfv](https://github.com/wolfv/)
 

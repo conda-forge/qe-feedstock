@@ -1,4 +1,5 @@
 #!/bin/bash
+set -ex
 
 #export ARCH="x86_64"
 #export FOX_LIB="-L${PREFIX}/lib -lFoX_dom -lFoX_sax -lFoX_wxml -lFoX_common -lFoX_utils -lFoX_fsys "
@@ -27,12 +28,12 @@
 #    --enable-openmp \
 #    --with-scalapack
 
-# download fox
-rm -rf external/fox
-#git clone https://github.com/pietrodelugas/fox/tree/819745f5849de5c9de516be133ab206691738257 external/fox
-wget https://github.com/pietrodelugas/fox/archive/819745f5849de5c9de516be133ab206691738257.tar.gz
-tar xf fox-819745f5849de5c9de516be133ab206691738257.tar.gz -c external/
-mv external/fox-819745f5849de5c9de516be133ab206691738257 external/fox
+# # download fox
+# rm -rf external/fox
+# #git clone https://github.com/pietrodelugas/fox/tree/819745f5849de5c9de516be133ab206691738257 external/fox
+# wget https://github.com/pietrodelugas/fox/archive/819745f5849de5c9de516be133ab206691738257.tar.gz
+# tar xf fox-819745f5849de5c9de516be133ab206691738257.tar.gz -c external/
+# mv external/fox-819745f5849de5c9de516be133ab206691738257 external/fox
 
 
 
