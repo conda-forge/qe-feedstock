@@ -19,6 +19,7 @@ requirements:
     - {{ compiler('fortran') }}
     - openmpi-mpifort
     - cmake >=2.8.12
+    - m4
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
     - wget
