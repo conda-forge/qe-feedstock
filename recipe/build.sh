@@ -10,10 +10,10 @@ set -ex
 #export FFT_LIBS="-L${PREFIX}/lib -lfftw3"
 #export MANUAL_DFLAGS="-D__FFTW3"
 #
-## Override C and Fortran preprocessor
-#export CPP="${CC} -E -P"
-#export FPP="${FC} -E -P -cpp"
-##export CPPFLAGS="${CPPFLAGS}"
+# Override C and Fortran preprocessor
+export CPP="${CC} -E -P"
+export FPP="${FC} -E -P -cpp"
+#export CPPFLAGS="${CPPFLAGS}"
 #
 ##export CC="${CC}"
 #export CFLAGS="${CFLAGS} -fopenmp"
