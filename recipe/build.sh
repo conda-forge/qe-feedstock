@@ -16,7 +16,8 @@ set -ex
 ##export CPPFLAGS="${CPPFLAGS}"
 
 
-# preprocessor hardcoded
+# preprocessor executable name was hardcoded
+# (will be fixed in next release)
 ln -s $BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cpp $BUILD_PREFIX/cpp
 
 #
@@ -48,7 +49,8 @@ cmake .. \
     -DQE_ENABLE_MPI=ON \
     -DQE_ENABLE_OPENMP=ON \
     -DQE_ENABLE_SCALAPACK=ON \
-    -DQE_ENABLE_TEST=ON
+    -DQE_ENABLE_TEST=ON \
+    -DCMAKE_INSTALL_PREFIX=${PREFIX}
     
 make
 
