@@ -30,10 +30,10 @@ set -ex
 
 # download fox
 rm -rf external/fox
-#git clone https://github.com/pietrodelugas/fox/tree/819745f5849de5c9de516be133ab206691738257 external/fox
-wget https://github.com/pietrodelugas/fox/archive/819745f5849de5c9de516be133ab206691738257.tar.gz
-tar -xf 819745f5849de5c9de516be133ab206691738257.tar.gz -C external/
-mv external/fox-819745f5849de5c9de516be133ab206691738257 external/fox
+#git clone https://github.com/pietrodelugas/fox/tree/98ce8e36c881ccf511c1c4991ff76c174eaaeab9 external/fox
+wget https://github.com/pietrodelugas/fox/archive/98ce8e36c881ccf511c1c4991ff76c174eaaeab9.tar.gz
+tar -xf 98ce8e36c881ccf511c1c4991ff76c174eaaeab9.tar.gz -C external/
+mv external/fox-98ce8e36c881ccf511c1c4991ff76c174eaaeab9 external/fox
 
 
 
