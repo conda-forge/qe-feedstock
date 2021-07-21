@@ -9,7 +9,7 @@ set -ex
 
 # preprocessor executable name was hardcoded
 # (will be fixed in next release)
-ln -s $BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cpp $BUILD_PREFIX/cpp
+ln -s $CPP $BUILD_PREFIX/cpp
 
 mkdir build
 cd build
