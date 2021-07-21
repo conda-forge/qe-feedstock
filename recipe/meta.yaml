@@ -67,7 +67,7 @@ test:
     - test -f ${PREFIX}/bin/open_grid.x
     - test -f ${PREFIX}/bin/path_interpolation.x
     - test -f ${PREFIX}/bin/pawplot.x
-    - test -f ${PREFIX}/bin/phcg.x
+    # - test -f ${PREFIX}/bin/phcg.x
     - test -f ${PREFIX}/bin/ph.x
     - test -f ${PREFIX}/bin/plan_avg.x
     - test -f ${PREFIX}/bin/plotband.x

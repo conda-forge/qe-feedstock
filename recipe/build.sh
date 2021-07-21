@@ -20,12 +20,10 @@ cmake .. \
     -DQE_ENABLE_TEST=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX}
     
-make pwall ld1 cp epw
+make
 
-## see https://gitlab.com/QEF/q-e/-/blob/develop/test-suite/Makefile
-#cd test-suite
-#make run-travis
-#cd ..
-make test
+#make test
+# Only pw, cp, and unit tests are safe to run when using cmake curently
+ctest -L "pw|cp|unit" -LE epw
 
 make install
