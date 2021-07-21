@@ -26,5 +26,6 @@ make pwall ld1 cp epw
 #cd test-suite
 #make run-travis
 #cd ..
+make test
 
 make install
