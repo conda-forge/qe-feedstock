@@ -24,14 +24,15 @@ requirements:
     - llvm-openmp  # [osx]
     - wget
   host:
-    - fftw
-    - fox
     - libblas
     - libcblas
     - liblapack
     - liblapacke
     - openmpi
     - scalapack
+    - fftw
+    - fox
+    - libxc
   run:
     - fftw
     - openmpi
