@@ -27,6 +27,6 @@ export OMPI_MCA_plm_rsh_agent=sh
 #fi
 #make test
 # Only pw, cp, and unit tests are safe to run when using cmake curently
-ctest -L "pw|cp|unit" -LE epw
+ctest -L "pw|cp|unit" -LE epw --output-on-failure
 
 make install
