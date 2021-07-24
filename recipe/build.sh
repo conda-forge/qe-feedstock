@@ -31,6 +31,6 @@ export MPIEXEC_MAX_NUMPROCS=2
 #fi
 #make test
 # Only pw, cp, and unit tests are safe to run when using cmake curently
-ctest -L "pw|cp|unit" -LE epw --output-on-failure
+MPIEXEC_PREFLAGS="--bind-to none -mca plm isolated" MPIEXEC_MAX_NUMPROCS=2 ctest -L "pw|cp|unit" -LE epw --output-on-failure
 
 make install
