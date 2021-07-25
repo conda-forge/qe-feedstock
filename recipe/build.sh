@@ -22,6 +22,7 @@ cmake .. \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DMPIEXEC_PREFLAGS="--bind-to none -mca plm isolated" \
     -DMPIEXEC_MAX_NUMPROCS=2  \
+    -DTESTCODE_NPROCS=2 \
  
 make
 
