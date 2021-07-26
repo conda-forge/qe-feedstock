@@ -20,7 +20,7 @@ cmake .. \
     -DQE_ENABLE_LIBXC=ON \
     -DQE_ENABLE_TEST=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
-    -DMPIEXEC_PREFLAGS="--bind-to none -mca plm isolated" \
+    -DMPIEXEC_PREFLAGS="--bind-to;none;-mca;plm;isolated" \
     -DMPIEXEC_MAX_NUMPROCS=2  \
     -DTESTCODE_NPROCS=2 \
  
