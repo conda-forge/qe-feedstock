@@ -28,7 +28,8 @@ export LDFLAGS="${LDFLAGS} -fopenmp"
     --prefix=${PREFIX} \
     --enable-parallel \
     --enable-openmp \
-    --with-scalapack
+    --with-scalapack \
+    --with-cuda=no
 
 make pwall
 make ld1
