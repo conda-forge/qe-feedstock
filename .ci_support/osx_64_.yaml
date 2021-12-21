@@ -5,7 +5,7 @@ c_compiler:
 c_compiler_version:
 - '11'
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 fftw:
@@ -22,6 +22,8 @@ liblapack:
 - 3.8 *netlib
 liblapacke:
 - 3.8 *netlib
+llvm_openmp:
+- '11'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openmpi:
