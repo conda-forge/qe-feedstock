@@ -92,7 +92,7 @@ test:
     - test -f ${PREFIX}/bin/pw.x
     - test -f ${PREFIX}/bin/q2qstar.x
     - test -f ${PREFIX}/bin/q2r.x
-    - test -f ${PREFIX}/bin/scan_ibrav.x
+    # - test -f ${PREFIX}/bin/scan_ibrav.x
     - test -f ${PREFIX}/bin/sumpdos.x
     - test -f ${PREFIX}/bin/upfconv.x
     - test -f ${PREFIX}/bin/virtual_v2.x
