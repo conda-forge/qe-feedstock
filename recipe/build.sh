@@ -17,12 +17,14 @@ cmake .. \
     -DQE_ENABLE_MPI=ON \
     -DQE_ENABLE_OPENMP=ON \
     -DQE_ENABLE_SCALAPACK=ON \
-    #-DQE_ENABLE_LIBXC=ON \
     -DQE_ENABLE_TEST=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated" \
     -DMPIEXEC_MAX_NUMPROCS=2  \
-    -DTESTCODE_NPROCS=2 \
+    -DTESTCODE_NPROCS=2
+
+# Libxc fortran bindings currently not available for macos
+    #-DQE_ENABLE_LIBXC=ON \
  
 make
 
