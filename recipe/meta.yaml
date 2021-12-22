@@ -9,6 +9,10 @@ source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
   sha256: 654855c69864de7ece5ef2f2c0dea2d32698fe51192a8646b1555b0c57e033b2
 
+  patches:
+   - 5185853e763c1bfb2ba33e01f19097c0bb400cc1.patch
+   - c5373212f2717f916e6ee200aad4197b8e43a901.patch
+
 build:
   number: 0
   skip: true  # [win]
@@ -72,7 +76,7 @@ test:
     - test -f ${PREFIX}/bin/open_grid.x
     - test -f ${PREFIX}/bin/path_interpolation.x
     - test -f ${PREFIX}/bin/pawplot.x
-    # - test -f ${PREFIX}/bin/phcg.x
+    - test -f ${PREFIX}/bin/phcg.x
     - test -f ${PREFIX}/bin/ph.x
     - test -f ${PREFIX}/bin/plan_avg.x
     - test -f ${PREFIX}/bin/plotband.x
@@ -92,7 +96,7 @@ test:
     - test -f ${PREFIX}/bin/pw.x
     - test -f ${PREFIX}/bin/q2qstar.x
     - test -f ${PREFIX}/bin/q2r.x
-    # - test -f ${PREFIX}/bin/scan_ibrav.x
+    - test -f ${PREFIX}/bin/scan_ibrav.x
     - test -f ${PREFIX}/bin/sumpdos.x
     - test -f ${PREFIX}/bin/upfconv.x
     - test -f ${PREFIX}/bin/virtual_v2.x
@@ -100,7 +104,8 @@ test:
     - test -f ${PREFIX}/bin/wannier_plot.x
     - test -f ${PREFIX}/bin/wfck2r.x
     - test -f ${PREFIX}/bin/wfdd.x
-    - test -f ${PREFIX}/bin/xctest_qe_libxc.x
+    # Put back when re-enabling libxc
+    # - test -f ${PREFIX}/bin/xctest_qe_libxc.x
 
 about:
   home: http://www.quantum-espresso.org

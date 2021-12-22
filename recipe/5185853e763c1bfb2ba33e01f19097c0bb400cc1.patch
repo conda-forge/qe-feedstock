@@ -1,0 +1,484 @@
+From 5185853e763c1bfb2ba33e01f19097c0bb400cc1 Mon Sep 17 00:00:00 2001
+From: Ye Luo <yeluo@anl.gov>
+Date: Wed, 21 Jul 2021 10:58:44 -0500
+Subject: [PATCH] Add executables missing in CMake.
+
+---
+ GWW/CMakeLists.txt    |  94 +++++++++++++++++++++++++-----------
+ PHonon/CMakeLists.txt |  39 ++++++++++-----
+ PW/CMakeLists.txt     |  16 ++++++-
+ QEHeat/CMakeLists.txt |   3 ++
+ upflib/CMakeLists.txt | 109 +++++++++++++++++++++++-------------------
+ 5 files changed, 170 insertions(+), 91 deletions(-)
+
+diff --git a/GWW/CMakeLists.txt b/GWW/CMakeLists.txt
+index 2936ea641..65c0319c9 100644
+--- a/GWW/CMakeLists.txt
++++ b/GWW/CMakeLists.txt
+@@ -243,11 +243,11 @@ target_link_libraries(qe_gww_simpleip
+ ###########################################################
+ set(src_graph_x util/graph.f90)
+ qe_add_executable(qe_gww_util_grap_exe ${src_graph_x})
+-set_target_properties(qe_gww_util_grap_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_util_grap_exe
++    PROPERTIES
+         OUTPUT_NAME graph.x)
+-set_target_properties(qe_gww_util_grap_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_util_grap_exe
++    PROPERTIES
+         OUTPUT_NAME graph.x)
+ 
+ ###########################################################
+@@ -255,11 +255,11 @@ set_target_properties(qe_gww_util_grap_exe
+ ###########################################################
+ set(src_abcoeff_to_eps_x util/abcoeff_to_eps.f90)
+ qe_add_executable(qe_gww_util_abcoefftoeps_exe ${src_abcoeff_to_eps_x})
+-set_target_properties(qe_gww_util_abcoefftoeps_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_util_abcoefftoeps_exe
++    PROPERTIES
+         OUTPUT_NAME abcoeff_to_eps.x)
+-set_target_properties(qe_gww_util_abcoefftoeps_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_util_abcoefftoeps_exe
++    PROPERTIES
+         OUTPUT_NAME abcoeff_to_eps.x)
+ 
+ ###########################################################
+@@ -267,11 +267,11 @@ set_target_properties(qe_gww_util_abcoefftoeps_exe
+ ###########################################################
+ set(src_memory_pw4gww_x util/memory_pw4gww.f90)
+ qe_add_executable(qe_gww_util_memorypw4gww_exe ${src_memory_pw4gww_x})
+-set_target_properties(qe_gww_util_memorypw4gww_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_util_memorypw4gww_exe
++    PROPERTIES
+         OUTPUT_NAME memory_pw4gww.x)
+-set_target_properties(qe_gww_util_memorypw4gww_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_util_memorypw4gww_exe
++    PROPERTIES
+         OUTPUT_NAME memory_pw4gww.x)
+ 
+ #############################################################
+@@ -279,8 +279,8 @@ set_target_properties(qe_gww_util_memorypw4gww_exe
+ ############################################################
+ set(src_bse_main_x bse/bse_main.f90)
+ qe_add_executable(qe_gww_bse_bse_main_exe ${src_bse_main_x})
+-set_target_properties(qe_gww_bse_bse_main_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_bse_bse_main_exe
++    PROPERTIES
+         OUTPUT_NAME bse_main.x)
+ target_link_libraries(qe_gww_bse_bse_main_exe
+     PRIVATE
+@@ -298,8 +298,8 @@ target_link_libraries(qe_gww_bse_bse_main_exe
+ ################################################################
+ set(src_gww_x gww/gww.f90)
+ qe_add_executable(qe_gww_gww_exe ${src_gww_x})
+-set_target_properties(qe_gww_gww_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_gww_exe
++    PROPERTIES
+         OUTPUT_NAME gww.x)
+ target_link_libraries(qe_gww_gww_exe
+     PRIVATE
+@@ -309,42 +309,59 @@ target_link_libraries(qe_gww_gww_exe
+        qe_modules)
+ 
+ ################################################################
+-# gww_fit.x 
++# gww_fit.x
+ ################################################################
+ set(src_gww_fit_x gww/gww_fit.f90)
+ qe_add_executable(qe_gww_gww_fit_exe  ${src_gww_fit_x})
+-set_target_properties(qe_gww_gww_fit_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_gww_fit_exe
++    PROPERTIES
+         OUTPUT_NAME gww.x)
+ target_link_libraries(qe_gww_gww_fit_exe
+-    PRIVATE 
++    PRIVATE
+        qe_gww
+        qe_gww_minpack
+        qe_modules)
+ 
+ ################################################################
+-# head.x 
++# head.x
+ ################################################################
+ set(src_head_x head/head.f90)
+ qe_add_executable(qe_gww_head_exe ${src_head_x})
+-set_target_properties(qe_gww_head_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_head_exe
++    PROPERTIES
+         OUTPUT_NAME head.x)
+ target_link_libraries(qe_gww_head_exe
+-    PRIVATE 
++    PRIVATE
+        qe_gww_head
+        qe_gww_minpack
+        qe_phonon_ph
+        qe_modules
+        qe_pw)
+ 
++###########################################################
++# simple.x
++###########################################################
++set(src_simple_x simple/simple.f90)
++qe_add_executable(qe_gww_simple_exe ${src_simple_x})
++set_target_properties(qe_gww_simple_exe
++    PROPERTIES
++        OUTPUT_NAME simple.x)
++target_link_libraries(qe_gww_simple_exe
++    PRIVATE
++        qe_gww_simple
++        qe_fftx
++        qe_xclib
++        qe_pw
++        qe_upflib
++        qe_modules)
++
+ ###########################################################
+ # simple_bse.x
+ ###########################################################
+ set(src_simple_bse_x simple_bse/simple_bse.f90)
+ qe_add_executable(qe_gww_simple_bse_exe ${src_simple_bse_x})
+-set_target_properties(qe_gww_simple_bse_exe 
+-    PROPERTIES 
++set_target_properties(qe_gww_simple_bse_exe
++    PROPERTIES
+         OUTPUT_NAME simple_bse.x)
+ target_link_libraries(qe_gww_simple_bse_exe
+     PRIVATE
+@@ -356,15 +373,32 @@ target_link_libraries(qe_gww_simple_bse_exe
+ # simple_ip.x
+ ################################################################
+ set(src_simple_ip_x simple_ip/simple_ip.f90)
+-qe_add_executable(qe_gww_simple_ip_exe ${src_simple_ip_x}) 
+-set_target_properties(qe_gww_simple_ip_exe 
+-    PROPERTIES 
++qe_add_executable(qe_gww_simple_ip_exe ${src_simple_ip_x})
++set_target_properties(qe_gww_simple_ip_exe
++    PROPERTIES
+         OUTPUT_NAME simple_ip.x)
+ target_link_libraries(qe_gww_simple_ip_exe
+     PRIVATE
+         qe_gww_simpleip
+         qe_modules)
+ 
++################################################################
++# pw4gww.x
++################################################################
++set(src_pw4gww_pw4gww_x pw4gww/pw4gww.f90)
++qe_add_executable(qe_gww_pw4gww_exe  ${src_pw4gww_pw4gww_x})
++set_target_properties(qe_gww_pw4gww_exe
++    PROPERTIES
++        OUTPUT_NAME pw4gww.x)
++target_link_libraries(qe_gww_pw4gww_exe
++    PRIVATE
++        qe_gww_pw4gww
++        qe_phonon_gamma
++        qe_fftx
++        qe_xclib
++        qe_pw
++        qe_modules)
++
+ ###########################################################
+ 
+ qe_install_targets(
+@@ -378,6 +412,7 @@ qe_install_targets(
+     qe_gww_simplebse
+     qe_gww_simpleip
+     # Executables
++    qe_gww_pw4gww_exe
+     qe_gww_util_grap_exe
+     qe_gww_util_abcoefftoeps_exe
+     qe_gww_util_memorypw4gww_exe
+@@ -385,5 +420,6 @@ qe_install_targets(
+     qe_gww_gww_exe
+     qe_gww_gww_fit_exe
+     qe_gww_head_exe
++    qe_gww_simple_exe
+     qe_gww_simple_bse_exe
+     qe_gww_simple_ip_exe)
+diff --git a/PHonon/CMakeLists.txt b/PHonon/CMakeLists.txt
+index 96bec0ebe..e5f6fa669 100644
+--- a/PHonon/CMakeLists.txt
++++ b/PHonon/CMakeLists.txt
+@@ -381,6 +381,33 @@ target_link_libraries(qe_phonon_fqha_exe
+         qe_utilx
+         qe_phonon_ph)
+ 
++###########################################################
++# postahc.x
++###########################################################
++set(src_postahc_x PH/postahc.f90)
++qe_add_executable(qe_phonon_postahc_exe ${src_postahc_x})
++set_target_properties(qe_phonon_postahc_exe PROPERTIES OUTPUT_NAME postahc.x)
++target_link_libraries(qe_phonon_postahc_exe
++    PRIVATE
++        qe_modules
++        qe_phonon_ph)
++
++###########################################################
++# phcg.x
++###########################################################
++set(src_phonon_phcg_x Gamma/phcg.f90)
++qe_enable_cuda_fortran("${src_phonon_phcg_x}")
++qe_add_executable(qe_phonon_phcg_exe ${src_phonon_phcg_x})
++set_target_properties(qe_phonon_phcg_exe PROPERTIES OUTPUT_NAME phcg.x)
++target_link_libraries(qe_phonon_phcg_exe
++    PRIVATE
++        qe_pw
++        qe_fftx
++        qe_xclib
++        qe_lr_modules
++        qe_phonon_gamma
++        qe_modules)
++
+ ###########################################################
+ # fd.x
+ ###########################################################
+@@ -423,17 +450,6 @@ target_link_libraries(qe_phonon_fdifc_exe
+         qe_phonon_ph
+         qe_fftx)
+ 
+-###########################################################
+-# postahc.x
+-###########################################################
+-set(src_postahc_x PH/postahc.f90)
+-qe_add_executable(qe_phonon_postahc_exe ${src_postahc_x})
+-set_target_properties(qe_phonon_postahc_exe PROPERTIES OUTPUT_NAME postahc.x)
+-target_link_libraries(qe_phonon_postahc_exe
+-    PRIVATE
+-        qe_modules
+-        qe_phonon_ph)
+-
+ ###########################################################
+ 
+ qe_install_targets(
+@@ -444,6 +460,7 @@ qe_install_targets(
+     qe_phonon_fd
+     # Executables
+     qe_phonon_ph_exe
++    qe_phonon_phcg_exe
+     qe_phonon_dynmat_exe
+     qe_phonon_q2r_exe
+     qe_phonon_dvscf_q2r_exe
+diff --git a/PW/CMakeLists.txt b/PW/CMakeLists.txt
+index b983c5d36..63f6ab4fc 100644
+--- a/PW/CMakeLists.txt
++++ b/PW/CMakeLists.txt
+@@ -400,6 +400,19 @@ target_link_libraries(qe_pw_tools_pwi2xsf_exe
+         qe_pw
+         qe_modules)
+ 
++###########################################################
++# scan_ibrav.x
++###########################################################
++set(src_scan_ibrav_x tools/scan_ibrav.f90)
++qe_add_executable(qe_pw_tools_scan_ibrav_exe ${src_scan_ibrav_x})
++set_target_properties(qe_pw_tools_scan_ibrav_exe
++    PROPERTIES
++        OUTPUT_NAME scan_ibrav.x)
++target_link_libraries(qe_pw_tools_scan_ibrav_exe
++    PRIVATE
++        qe_pw
++        qe_modules)
++
+ ###########################################################
+ 
+ qe_install_targets(
+@@ -411,4 +424,5 @@ qe_install_targets(
+     qe_pw_tools_cell2ibrav_exe
+     qe_pw_tools_ev_exe
+     qe_pw_tools_kpoints_exe
+-    qe_pw_tools_pwi2xsf_exe)
++    qe_pw_tools_pwi2xsf_exe
++    qe_pw_tools_scan_ibrav_exe)
+diff --git a/QEHeat/CMakeLists.txt b/QEHeat/CMakeLists.txt
+index 4826e0a22..4269f390f 100644
+--- a/QEHeat/CMakeLists.txt
++++ b/QEHeat/CMakeLists.txt
+@@ -29,6 +29,9 @@ target_link_libraries(qe_qeheat
+     qe_xclib
+ )
+ 
++###########################################################
++# all_currents.x
++###########################################################
+ set(src_all_currents_x src/all_currents.f90)
+ qe_enable_cuda_fortran("${src_all_currents_x}")
+ qe_add_executable(qe_qeheat_exe ${src_all_currents_x})
+diff --git a/upflib/CMakeLists.txt b/upflib/CMakeLists.txt
+index d50064bfd..1a1a38819 100644
+--- a/upflib/CMakeLists.txt
++++ b/upflib/CMakeLists.txt
+@@ -1,6 +1,6 @@
+ set(src_upflib
+-    atom.f90 
+-    atomic_number.f90 
++    atom.f90
++    atomic_number.f90
+     dqvan2.f90
+     init_us_0.f90
+     init_us_b0.f90
+@@ -10,38 +10,38 @@ set(src_upflib
+     init_tab_qrad.f90
+     interp_atwfc.f90
+     init_us_2_base.f90
+-    gth.f90 
++    gth.f90
+     paw_variables.f90
+-    pseudo_types.f90 
++    pseudo_types.f90
+     qvan2.f90
+-    radial_grids.f90 
+-    read_cpmd.f90 
+-    read_fhi.f90 
+-    read_ncpp.f90 
+-    read_ps.f90 
+-    read_upf_new.f90 
+-    read_upf_v1.f90 
+-    read_uspp.f90 
+-    spinor.f90 
+-    sph_ind.f90 
+-    sph_bes.f90 
+-    splinelib.f90 
+-    simpsn.f90 
+-    upf_auxtools.f90 
+-    upf_const.f90 
+-    upf_error.f90 
+-    upf_invmat.f90 
+-    upf_io.f90 
+-    upf_ions.f90 
+-    upf_kinds.f90 
++    radial_grids.f90
++    read_cpmd.f90
++    read_fhi.f90
++    read_ncpp.f90
++    read_ps.f90
++    read_upf_new.f90
++    read_upf_v1.f90
++    read_uspp.f90
++    spinor.f90
++    sph_ind.f90
++    sph_bes.f90
++    splinelib.f90
++    simpsn.f90
++    upf_auxtools.f90
++    upf_const.f90
++    upf_error.f90
++    upf_invmat.f90
++    upf_io.f90
++    upf_ions.f90
++    upf_kinds.f90
+     upf_spinorb.f90
+-    upf_params.f90 
+-    upf_parallel_include.f90 
+-    upf_to_internal.f90 
+-    upf_utils.f90 
+-    uspp.f90 
+-    uspp_data.f90 
+-    write_upf_new.f90 
++    upf_params.f90
++    upf_parallel_include.f90
++    upf_to_internal.f90
++    upf_utils.f90
++    uspp.f90
++    uspp_data.f90
++    write_upf_new.f90
+     xmltools.f90
+     ylmr2.f90
+     dylmr2.f90
+@@ -49,7 +49,7 @@ set(src_upflib
+     init_us_2_base_gpu.f90
+     interp_atwfc_gpu.f90
+     qvan2_gpu.f90
+-    sph_bes_gpu.f90 
++    sph_bes_gpu.f90
+     ylmr2_gpu.f90
+     dylmr2_gpu.f90
+     simpsn_gpu.f90)
+@@ -70,26 +70,26 @@ target_link_libraries(qe_upflib
+ #endif()
+ 
+ ##############################################################
+-# virtual_v2.x 
++# virtual_v2.x
+ ##############################################################
+-set(src_virtual_v2_x virtual_v2.f90) 
+-qe_add_executable(qe_upflib_virtual_v2_exe ${src_virtual_v2_x}) 
+-set_target_properties(qe_upflib_virtual_v2_exe 
+-    PROPERTIES 
++set(src_virtual_v2_x virtual_v2.f90)
++qe_add_executable(qe_upflib_virtual_v2_exe ${src_virtual_v2_x})
++set_target_properties(qe_upflib_virtual_v2_exe
++    PROPERTIES
+         OUTPUT_NAME virtual_v2.x)
+-target_link_libraries(qe_upflib_virtual_v2_exe 
+-    PRIVATE 
++target_link_libraries(qe_upflib_virtual_v2_exe
++    PRIVATE
+         qe_upflib)
+ 
+ ###########################################################
+ # upfconv.x
+ ###########################################################
+-set(src_upfconv_x 
+-    upfconv.f90 
++set(src_upfconv_x
++    upfconv.f90
+     casino_pp.f90 )
+-qe_add_executable(qe_upflib_upfconv_exe ${src_upfconv_x}) 
+-set_target_properties(qe_upflib_upfconv_exe 
+-    PROPERTIES 
++qe_add_executable(qe_upflib_upfconv_exe ${src_upfconv_x})
++set_target_properties(qe_upflib_upfconv_exe
++    PROPERTIES
+         OUTPUT_NAME upfconv.x)
+ target_link_libraries(qe_upflib_upfconv_exe
+     PRIVATE
+@@ -98,19 +98,28 @@ target_link_libraries(qe_upflib_upfconv_exe
+ ###########################################################
+ # casino2upf.x
+ ###########################################################
+-set(src_casino2upf_x 
+-    casino2upf.f90 
++set(src_casino2upf_x
++    casino2upf.f90
+     casino_pp.f90 )
+-qe_add_executable(qe_upflib_casino2upf_exe ${src_casino2upf_x}) 
+-set_target_properties(qe_upflib_casino2upf_exe 
+-    PROPERTIES 
++qe_add_executable(qe_upflib_casino2upf_exe ${src_casino2upf_x})
++set_target_properties(qe_upflib_casino2upf_exe
++    PROPERTIES
+         OUTPUT_NAME casino2upf.x)
+ target_link_libraries(qe_upflib_casino2upf_exe
+     PRIVATE
+         qe_upflib)
+ 
++###########################################################
++# hgh2qe.x
++###########################################################
++qe_add_executable(qe_upflib_hgh2qe_exe hgh2qe.f90)
++set_target_properties(qe_upflib_hgh2qe_exe
++    PROPERTIES
++        OUTPUT_NAME hgh2qe.x)
++
+ ############################################################################
+ qe_install_targets(qe_upflib
+     qe_upflib_virtual_v2_exe
+     qe_upflib_upfconv_exe
+-    qe_upflib_casino2upf_exe)
++    qe_upflib_casino2upf_exe
++    qe_upflib_hgh2qe_exe)
+-- 
+GitLab
+

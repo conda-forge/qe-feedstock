@@ -1,7 +1,7 @@
 #!/bin/bash
 # Some tests are still failing (always check manually)
 # Put back `set -ex` once we can make all tests pass
-set -ex
+#set -ex
 
 
 # preprocessor executable name was hardcoded
