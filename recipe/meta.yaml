@@ -1,5 +1,5 @@
 {% set name = "qe" %}
-{% set version = "6.7.0" %}
+{% set version = "6.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,17 @@ package:
 
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
-  sha256: 11364f931894555f296f176ca91757f9a8d510f8e5264ced60e82e11c6de725f
+  sha256: 654855c69864de7ece5ef2f2c0dea2d32698fe51192a8646b1555b0c57e033b2
+
+  patches:
+   # drop following 2 patches for next version after 6.8
+   - 5185853e763c1bfb2ba33e01f19097c0bb400cc1.patch
+   - c5373212f2717f916e6ee200aad4197b8e43a901.patch
+   # drop following patch for next version after 7.0
+   - 979aba59d385d4db0a485f17e3b0b3937be1a9cf.diff
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
@@ -18,18 +25,25 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - openmpi-mpifort
+    - cmake >=2.8.12
     - make
-  host:
-    - fftw
-    - fox
-    - libblas
-    - libcblas
+    - m4
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
+    - pkg-config  # [osx]
+    - wget
+  host:
+    - libblas
+    - libcblas
     - liblapack
     - liblapacke
     - openmpi
     - scalapack
+    - fftw
+    - fox
+    # libxc 5 conda-forge package currently does not include fortran bindings
+    # see https://github.com/conda-forge/libxc-feedstock/issues/15
+    #- libxc
   run:
     - fftw
     - openmpi
@@ -93,7 +107,8 @@ test:
     - test -f ${PREFIX}/bin/wannier_plot.x
     - test -f ${PREFIX}/bin/wfck2r.x
     - test -f ${PREFIX}/bin/wfdd.x
-    - test -f ${PREFIX}/bin/xctest_qe_libxc.x
+    # Put back when re-enabling libxc
+    # - test -f ${PREFIX}/bin/xctest_qe_libxc.x
 
 about:
   home: http://www.quantum-espresso.org
