@@ -18,6 +18,7 @@ cmake .. \
     -DQE_ENABLE_OPENMP=ON \
     -DQE_ENABLE_SCALAPACK=ON \
     -DQE_ENABLE_TEST=ON \
+    -DBUILD_SHARED_LIBS=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated" \
     -DMPIEXEC_MAX_NUMPROCS=2  \
