@@ -17,6 +17,7 @@ cmake .. \
     -DQE_ENABLE_MPI=ON \
     -DQE_ENABLE_OPENMP=ON \
     -DQE_ENABLE_SCALAPACK=ON \
+    -DQE_ENABLE_HDF5=ON \
     -DQE_ENABLE_TEST=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated" \

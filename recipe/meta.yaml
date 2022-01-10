@@ -13,7 +13,7 @@ source:
    - 979aba59d385d4db0a485f17e3b0b3937be1a9cf.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -33,6 +33,7 @@ requirements:
     - libcblas
     - liblapack
     - liblapacke
+    - hdf5 * *openmpi*
     - openmpi
     - scalapack
     - fftw
