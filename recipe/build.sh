@@ -28,7 +28,7 @@ cmake .. \
 # Libxc fortran bindings currently not available for macos
     #-DQE_ENABLE_LIBXC=ON \
  
-make -j
+make
 
 #if [[ "$mpi" == "openmpi" ]]; then
 export OMPI_MCA_plm_rsh_agent=sh
@@ -37,6 +37,6 @@ export OMPI_MCA_plm_rsh_agent=sh
 # Only pw, cp, and unit tests are safe to run when using cmake curently (to fix in later releases)
 #make test
 # there are known test failures that will be addressed later
-# ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
+ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
 
 make install
