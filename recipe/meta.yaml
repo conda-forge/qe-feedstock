@@ -18,7 +18,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - openmpi-mpifort
-    - cmake >=3.18.0 # [QE prereq]
+    - cmake >=3.18.0
     - make
     - m4
     - libgomp  # [linux]
