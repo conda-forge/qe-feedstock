@@ -6,12 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  # url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
-  url: https://gitlab.com/QEF/q-e/-/archive/qe-7.1/q-e-qe-7.1.tar.gz
-  # sha256: 85beceb1aaa1678a49e774c085866d4612d9d64108e0ac49b23152c8622880ee
-  # patches:
-   # drop following patch for next version after 7.0
-   # - 979aba59d385d4db0a485f17e3b0b3937be1a9cf.diff
+  url: https://gitlab.com/QEF/q-e/-/archive/{{ name }}-{{ version }}/q-e-{{ name }}-{{ version }}.tar.gz
+  sha256: d56dea096635808843bd5a9be2dee3d1f60407c01dbeeda03f8256a3bcfc4eb6
 
 build:
   number: 1
@@ -22,7 +18,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - openmpi-mpifort
-    - cmake >=2.8.12
+    - cmake >=3.18.0 # [QE prereq]
     - make
     - m4
     - libgomp  # [linux]
@@ -37,6 +33,7 @@ requirements:
     - hdf5 * *openmpi*
     - openmpi
     - scalapack
+    - elpa * *openmpi*
     - fftw
     - fox
     # libxc 5 conda-forge package currently does not include fortran bindings
@@ -45,7 +42,7 @@ requirements:
   run:
     - fftw
     - openmpi
-    - scalapack
+    - elpa
 
 test:
   commands:

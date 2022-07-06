@@ -17,6 +17,7 @@ cmake .. \
     -DQE_ENABLE_MPI=ON \
     -DQE_ENABLE_OPENMP=ON \
     -DQE_ENABLE_SCALAPACK=ON \
+    -DQE_ENABLE_ELPA=ON \
     -DQE_ENABLE_HDF5=ON \
     -DQE_ENABLE_TEST=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
@@ -27,7 +28,7 @@ cmake .. \
 # Libxc fortran bindings currently not available for macos
     #-DQE_ENABLE_LIBXC=ON \
  
-make
+make -j
 
 #if [[ "$mpi" == "openmpi" ]]; then
 export OMPI_MCA_plm_rsh_agent=sh
@@ -36,6 +37,6 @@ export OMPI_MCA_plm_rsh_agent=sh
 # Only pw, cp, and unit tests are safe to run when using cmake curently (to fix in later releases)
 #make test
 # there are known test failures that will be addressed later
-ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
+# ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
 
 make install
