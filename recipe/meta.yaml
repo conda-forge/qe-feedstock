@@ -8,9 +8,6 @@ package:
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
   sha256: d56dea096635808843bd5a9be2dee3d1f60407c01dbeeda03f8256a3bcfc4eb6
-  patches:
-   # drop following patch for next version after 7.0
-    - 979aba59d385d4db0a485f17e3b0b3937be1a9cf.diff
 
 build:
   number: 0
