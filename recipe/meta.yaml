@@ -13,7 +13,7 @@ source:
    - 979aba59d385d4db0a485f17e3b0b3937be1a9cf.diff
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
