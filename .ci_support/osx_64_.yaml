@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '13'
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,7 +13,7 @@ fftw:
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '9'
+- '11'
 libblas:
 - 3.9 *netlib
 libcblas:
@@ -23,7 +23,7 @@ liblapack:
 liblapacke:
 - 3.9 *netlib
 llvm_openmp:
-- '13'
+- '14'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openmpi:
