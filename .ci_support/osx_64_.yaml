@@ -28,9 +28,6 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 openmpi:
 - '4'
-pin_run_as_build:
-  fftw:
-    max_pin: x
 target_platform:
 - osx-64
 zip_keys:
