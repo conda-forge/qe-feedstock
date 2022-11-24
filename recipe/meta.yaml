@@ -1,5 +1,5 @@
 {% set name = "qe" %}
-{% set version = "7.0" %}
+{% set version = "7.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
-  sha256: 85beceb1aaa1678a49e774c085866d4612d9d64108e0ac49b23152c8622880ee
+  sha256: d56dea096635808843bd5a9be2dee3d1f60407c01dbeeda03f8256a3bcfc4eb6
   patches:
-   # drop following patch for next version after 7.0
-   - 979aba59d385d4db0a485f17e3b0b3937be1a9cf.diff
+  # can be removed once https://gitlab.com/QEF/q-e/-/merge_requests/2007 is released
+  - fix_make_install.patch
 
 build:
   number: 1
@@ -34,6 +34,7 @@ requirements:
     - liblapack
     - liblapacke
     - libmbd
+    - hdf5 * *openmpi*
     - openmpi
     - scalapack
     - fftw
