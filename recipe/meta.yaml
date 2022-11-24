@@ -8,6 +8,9 @@ package:
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
   sha256: d56dea096635808843bd5a9be2dee3d1f60407c01dbeeda03f8256a3bcfc4eb6
+  patches:
+  # can be removed once https://gitlab.com/QEF/q-e/-/merge_requests/2007 is released
+  - fix_make_install.patch
 
 build:
   number: 1
