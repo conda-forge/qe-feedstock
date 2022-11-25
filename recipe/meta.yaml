@@ -37,7 +37,7 @@ requirements:
     - openmpi
     - scalapack
     - fftw
-    - fox
+    - fox  # [not linux_aarch64]
     # libxc 5 conda-forge package currently does not include fortran bindings
     # see https://github.com/conda-forge/libxc-feedstock/issues/15
     #- libxc
