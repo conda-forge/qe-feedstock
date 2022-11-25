@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('fortran') }}
     - openmpi-mpifort
-    - cmake >=2.8.12
+    - cmake >=3.18.0
     - make
     - m4
     - libgomp  # [linux]
@@ -36,6 +36,7 @@ requirements:
     - hdf5 * *openmpi*
     - openmpi
     - scalapack
+    - elpa * *openmpi*
     - fftw
     - fox
     # libxc 5 conda-forge package currently does not include fortran bindings
@@ -45,6 +46,7 @@ requirements:
     - fftw
     - openmpi
     - scalapack
+    - elpa
 
 test:
   commands:
