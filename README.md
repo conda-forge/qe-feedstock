@@ -1,11 +1,11 @@
-About qe
-========
+About qe-feedstock
+==================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qe-feedstock/blob/main/LICENSE.txt)
 
 Home: http://www.quantum-espresso.org
 
 Package license: GPL-2.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qe-feedstock/blob/main/LICENSE.txt)
 
 Summary: QUANTUM ESPRESSO (opEn-Source Package for Research in Electronic Structure, Simulation, and Optimization)
 
