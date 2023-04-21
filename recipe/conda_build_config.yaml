@@ -1,8 +1,8 @@
 c_compiler_version: 
-  - 11.3.0 
+  - 11 
 
 cxx_compiler_version:
-  - 11.3.0 
+  - 11 
   
 fortan_compiler_version:
-  - 11.3.0
+  - 11
