@@ -39,7 +39,9 @@ export OMPI_MCA_plm_rsh_agent=sh
 # there are known test failures that will be addressed later
 # disable test for aarch64 for now it takes too long and timeout of build
 if [[ $(lscpu | awk '/Architecture:/{print $2}') != "aarch64" ]]; then 
-ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
+    ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
+else
+    ctest -L "unit" --output-on-failure  || true
 fi
 
 make install
