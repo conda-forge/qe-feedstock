@@ -1,5 +1,5 @@
 {% set name = "qe" %}
-{% set version = "7.1" %}
+{% set version = "7.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,10 @@ package:
 
 source:
   url: https://github.com/QEF/q-e/archive/{{ name }}-{{ version }}.tar.gz
-  sha256: d56dea096635808843bd5a9be2dee3d1f60407c01dbeeda03f8256a3bcfc4eb6
-  patches:
-  # can be removed once https://gitlab.com/QEF/q-e/-/merge_requests/2007 is released
-  - fix_make_install.patch
+  sha256: b348a4a7348b66a73545d9ca317a2645755c98d343c1cfe8def475ad030808c0
 
 build:
-  number: 3
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -130,3 +127,4 @@ extra:
     - certik
     - wolfv
     - ltalirz
+    - unkcpz
