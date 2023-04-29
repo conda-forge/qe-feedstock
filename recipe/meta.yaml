@@ -30,6 +30,7 @@ requirements:
     - libcblas
     - liblapack
     - liblapacke
+    - libmbd
     - hdf5 * *openmpi*
     - openmpi
     - scalapack
