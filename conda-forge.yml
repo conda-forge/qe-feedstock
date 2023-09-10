@@ -6,3 +6,5 @@ conda_build:
   pkg_format: '2'
 provider:
   linux_aarch64: azure
+build_platform:
+  linux_aarch64: linux_64
