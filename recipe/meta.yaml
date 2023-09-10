@@ -30,6 +30,9 @@ requirements:
     - libcblas
     - liblapack
     - liblapacke
+    # Double pin hdf5, once for the global pinning
+    # the other for openmpi
+    - hdf5
     - hdf5 * *openmpi*
     - openmpi
     - scalapack
