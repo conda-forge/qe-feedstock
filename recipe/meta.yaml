@@ -36,9 +36,7 @@ requirements:
     - elpa * *openmpi*
     - fftw
     - fox
-    # QE test suite failing with libxc 6.x https://gitlab.com/QEF/q-e/-/issues/640;
-    # remove restriction once this is fixed
-    - libxc <6
+    - libxc
   run:
     - fftw
     - openmpi
