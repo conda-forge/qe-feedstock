@@ -20,6 +20,7 @@ cmake .. \
     -DQE_ENABLE_ELPA=ON \
     -DQE_ENABLE_HDF5=ON \
     -DQE_ENABLE_TEST=ON \
+    -DQE_ENABLE_FOX=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated" \
     -DMPIEXEC_MAX_NUMPROCS=2  \
