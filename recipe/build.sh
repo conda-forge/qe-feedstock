@@ -3,11 +3,6 @@
 # Put back `set -ex` once we can make all tests pass
 #set -ex
 
-
-# preprocessor executable name was hardcoded
-# (will be fixed in next release)
-ln -s $CPP $BUILD_PREFIX/cpp
-
 mkdir build
 cd build
 
