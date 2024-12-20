@@ -13,7 +13,7 @@ cd build
 
 # FOR MPIEXEC configuration, see https://cmake.org/cmake/help/v3.9/module/FindMPI.html
 
-cmake .. \
+cmake ${CMAKE_ARGS} .. \
     -DQE_ENABLE_MPI=ON \
     -DQE_ENABLE_OPENMP=ON \
     -DQE_ENABLE_SCALAPACK=ON \
