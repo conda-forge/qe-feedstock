@@ -24,7 +24,7 @@ requirements:
     - m4
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
-    - pkg-config  # [osx]
+    - pkg-config
     - wget
   host:
     - libblas
