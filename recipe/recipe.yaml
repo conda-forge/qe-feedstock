@@ -28,13 +28,12 @@ requirements:
     - cmake >=3.18.0
     - make
     - m4
+    - pkg-config
+    - wget
     - if: linux
       then: libgomp
     - if: osx
       then: llvm-openmp
-    - if: osx
-      then: pkg-config
-    - wget
   host:
     - libblas
     - libcblas
