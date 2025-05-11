@@ -3,7 +3,7 @@ About qe-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qe-feedstock/blob/main/LICENSE.txt)
 
-Home: http://www.quantum-espresso.org
+Home: http://www.quantum-espresso.org/
 
 Package license: GPL-2.0-only
 
@@ -17,7 +17,6 @@ QUANTUM ESPRESSO is an integrated suite of Open-Source computer
 codes for electronic-structure calculations and materials modeling
 at the nanoscale. It is based on density-functional theory, plane
 waves, and pseudopotentials.
-
 
 Current build status
 ====================
