@@ -112,6 +112,9 @@ tests:
       - test -f ${PREFIX}/bin/wannier_plot.x
       - test -f ${PREFIX}/bin/wfck2r.x
       - test -f ${PREFIX}/bin/wfdd.x
+    requirements:
+      run:
+        - python 3.12.*
 
 about:
   license: GPL-2.0-only
