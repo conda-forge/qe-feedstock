@@ -1,0 +1,133 @@
+schema_version: 1
+
+context:
+  name: qe
+  version: 7.4
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/QEF/q-e/archive/${{ name }}-${{ version }}.tar.gz
+  sha256: b15dcfe25f4fbf15ccd34c1194021e90996393478226e601d876f7dea481d104
+
+build:
+  number: 1
+  skip: win
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('fortran') }}
+    - openmpi-mpifort
+    - cmake >=3.18.0
+    - make
+    - m4
+    - if: linux
+      then: libgomp
+    - if: osx
+      then: llvm-openmp
+    - if: osx
+      then: pkg-config
+    - wget
+  host:
+    - libblas
+    - libcblas
+    - liblapack
+    - liblapacke
+    - hdf5 * *openmpi*
+    - openmpi
+    - scalapack
+    - elpa * *openmpi*
+    - fftw
+    - fox
+    # libxc 5 conda-forge package currently does not include fortran bindings
+    # see https://github.com/conda-forge/libxc-feedstock/issues/15
+    #- libxc
+  run:
+    - fftw
+    - openmpi
+    - scalapack
+    - elpa
+
+tests:
+  - script:
+      - test -f ${PREFIX}/bin/alpha2f.x
+      - test -f ${PREFIX}/bin/average.x
+      - test -f ${PREFIX}/bin/bands.x
+      - test -f ${PREFIX}/bin/cell2ibrav.x
+      - test -f ${PREFIX}/bin/cppp.x
+      - test -f ${PREFIX}/bin/cp.x
+      - test -f ${PREFIX}/bin/dos.x
+      - test -f ${PREFIX}/bin/dvscf_q2r.x
+      - test -f ${PREFIX}/bin/dynmat.x
+      - test -f ${PREFIX}/bin/epa.x
+      - test -f ${PREFIX}/bin/epsilon.x
+      - test -f ${PREFIX}/bin/ev.x
+      - test -f ${PREFIX}/bin/fermi_proj.x
+      - test -f ${PREFIX}/bin/fermi_velocity.x
+      - test -f ${PREFIX}/bin/fqha.x
+      - test -f ${PREFIX}/bin/fs.x
+      - test -f ${PREFIX}/bin/ibrav2cell.x
+      - test -f ${PREFIX}/bin/initial_state.x
+      - test -f ${PREFIX}/bin/kpoints.x
+      - test -f ${PREFIX}/bin/lambda.x
+      - test -f ${PREFIX}/bin/ld1.x
+      - test -f ${PREFIX}/bin/manycp.x
+      - test -f ${PREFIX}/bin/matdyn.x
+      - test -f ${PREFIX}/bin/molecularpdos.x
+      - test -f ${PREFIX}/bin/neb.x
+      - test -f ${PREFIX}/bin/open_grid.x
+      - test -f ${PREFIX}/bin/path_interpolation.x
+      - test -f ${PREFIX}/bin/pawplot.x
+      - test -f ${PREFIX}/bin/phcg.x
+      - test -f ${PREFIX}/bin/ph.x
+      - test -f ${PREFIX}/bin/plan_avg.x
+      - test -f ${PREFIX}/bin/plotband.x
+      - test -f ${PREFIX}/bin/plotproj.x
+      - test -f ${PREFIX}/bin/plotrho.x
+      - test -f ${PREFIX}/bin/pmw.x
+      - test -f ${PREFIX}/bin/postahc.x
+      - test -f ${PREFIX}/bin/ppacf.x
+      - test -f ${PREFIX}/bin/pp.x
+      - test -f ${PREFIX}/bin/projwfc.x
+      - test -f ${PREFIX}/bin/pw2bgw.x
+      - test -f ${PREFIX}/bin/pw2critic.x
+      - test -f ${PREFIX}/bin/pw2gw.x
+      - test -f ${PREFIX}/bin/pw2wannier90.x
+      - test -f ${PREFIX}/bin/pwcond.x
+      - test -f ${PREFIX}/bin/pwi2xsf.x
+      - test -f ${PREFIX}/bin/pw.x
+      - test -f ${PREFIX}/bin/q2qstar.x
+      - test -f ${PREFIX}/bin/q2r.x
+      - test -f ${PREFIX}/bin/scan_ibrav.x
+      - test -f ${PREFIX}/bin/sumpdos.x
+      - test -f ${PREFIX}/bin/upfconv.x
+      - test -f ${PREFIX}/bin/virtual_v2.x
+      - test -f ${PREFIX}/bin/wannier_ham.x
+      - test -f ${PREFIX}/bin/wannier_plot.x
+      - test -f ${PREFIX}/bin/wfck2r.x
+      - test -f ${PREFIX}/bin/wfdd.x
+
+about:
+  license: GPL-2.0-only
+  license_file: License
+  summary: QUANTUM ESPRESSO (opEn-Source Package for Research in Electronic Structure, Simulation, and Optimization)
+  description: |
+    QUANTUM ESPRESSO is an integrated suite of Open-Source computer
+    codes for electronic-structure calculations and materials modeling
+    at the nanoscale. It is based on density-functional theory, plane
+    waves, and pseudopotentials.
+  homepage: http://www.quantum-espresso.org
+  repository: https://github.com/QEF/q-e
+  documentation: http://www.quantum-espresso.org/Doc/user_guide/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
+    - certik
+    - wolfv
+    - ltalirz
+    - unkcpz
