@@ -1,10 +1,12 @@
+c_compiler_version: 
+  - 11
+fortran_compiler_version:
+  - 11
 c_compiler:
   - if: linux
     then: gcc
   - if: osx
     then: clang
-c_compiler_version:
-  - '11'
 c_stdlib:
   - if: linux
     then: sysroot
@@ -20,5 +22,3 @@ fortran_compiler:
     then: gfortran
   - if: osx
     then: gfortran
-fortran_compiler_version:
-  - '11'
