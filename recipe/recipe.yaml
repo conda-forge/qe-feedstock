@@ -27,6 +27,7 @@ requirements:
     - openmpi-mpifort
     - cmake >=3.18.0
     - make
+    - mold
     - m4
     - pkg-config
     - wget
