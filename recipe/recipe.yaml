@@ -113,9 +113,6 @@ tests:
         - wannier_plot.x
         - wfck2r.x
         - wfdd.x
-    requirements:
-      run:
-        - python 3.12.*
 
 about:
   license: GPL-2.0-only
