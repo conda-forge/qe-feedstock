@@ -1,7 +1,7 @@
 c_compiler_version: 
-  - 11
+  - 15
 fortran_compiler_version:
-  - 11
+  - 15
 c_compiler:
   - if: linux
     then: gcc
