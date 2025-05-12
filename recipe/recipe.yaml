@@ -1,0 +1,136 @@
+schema_version: 1
+
+context:
+  name: qe
+  version: 7.4
+  mpi: openmpi
+  mpi_prefix: "mpi_${{ mpi }}"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/QEF/q-e/archive/${{ name }}-${{ version }}.tar.gz
+  sha256: b15dcfe25f4fbf15ccd34c1194021e90996393478226e601d876f7dea481d104
+
+build:
+  number: 0
+  skip: win
+  script: build.sh
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('fortran') }}
+    - openmpi-mpifort
+    - cmake >=3.18.0
+    - make
+    - m4
+    - pkg-config
+    - wget
+    - if: linux
+      then: libgomp
+    - if: osx
+      then: llvm-openmp
+  host:
+    - libblas
+    - libcblas
+    - liblapack
+    - liblapacke
+    - "hdf5 * *${{ mpi_prefix }}_*"
+    - openmpi
+    - scalapack
+    - "elpa * *${{ mpi_prefix }}_*"
+    - fftw
+    - fox
+    # libxc 5 conda-forge package currently does not include fortran bindings
+    # see https://github.com/conda-forge/libxc-feedstock/issues/15
+    #- libxc
+  run:
+    - fftw
+    - openmpi
+    - scalapack
+    - elpa
+
+tests:
+  - package_contents:
+      bin:
+        - alpha2f.x
+        - average.x
+        - bands.x
+        - cell2ibrav.x
+        - cppp.x
+        - cp.x
+        - dos.x
+        - dvscf_q2r.x
+        - dynmat.x
+        - epa.x
+        - epsilon.x
+        - ev.x
+        - fermi_proj.x
+        - fermi_velocity.x
+        - fqha.x
+        - fs.x
+        - ibrav2cell.x
+        - initial_state.x
+        - kpoints.x
+        - lambda.x
+        - ld1.x
+        - manycp.x
+        - matdyn.x
+        - molecularpdos.x
+        - neb.x
+        - open_grid.x
+        - path_interpolation.x
+        - pawplot.x
+        - phcg.x
+        - ph.x
+        - plan_avg.x
+        - plotband.x
+        - plotproj.x
+        - plotrho.x
+        - pmw.x
+        - postahc.x
+        - ppacf.x
+        - pp.x
+        - projwfc.x
+        - pw2bgw.x
+        - pw2critic.x
+        - pw2gw.x
+        - pw2wannier90.x
+        - pwcond.x
+        - pwi2xsf.x
+        - pw.x
+        - q2qstar.x
+        - q2r.x
+        - scan_ibrav.x
+        - sumpdos.x
+        - upfconv.x
+        - virtual_v2.x
+        - wannier_ham.x
+        - wannier_plot.x
+        - wfck2r.x
+        - wfdd.x
+
+about:
+  license: GPL-2.0-only
+  license_file: License
+  summary: QUANTUM ESPRESSO (opEn-Source Package for Research in Electronic Structure, Simulation, and Optimization)
+  description: |
+    QUANTUM ESPRESSO is an integrated suite of Open-Source computer
+    codes for electronic-structure calculations and materials modeling
+    at the nanoscale. It is based on density-functional theory, plane
+    waves, and pseudopotentials.
+  homepage: http://www.quantum-espresso.org
+  repository: https://github.com/QEF/q-e
+  documentation: http://www.quantum-espresso.org/Doc/user_guide/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
+    - certik
+    - wolfv
+    - ltalirz
+    - unkcpz

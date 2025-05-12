@@ -6,3 +6,5 @@ conda_build:
   pkg_format: '2'
 provider:
   linux_aarch64: azure
+conda_install_tool: pixi
+conda_build_tool: rattler-build
