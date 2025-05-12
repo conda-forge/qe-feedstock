@@ -22,9 +22,9 @@ requirements:
     - cmake >=3.18.0
     - make
     - m4
+    - pkg-config
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
-    - pkg-config  # [osx]
     - wget
   host:
     - libblas
