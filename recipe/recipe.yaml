@@ -55,63 +55,64 @@ requirements:
     - elpa
 
 tests:
-  - script:
-      - test -f ${PREFIX}/bin/alpha2f.x
-      - test -f ${PREFIX}/bin/average.x
-      - test -f ${PREFIX}/bin/bands.x
-      - test -f ${PREFIX}/bin/cell2ibrav.x
-      - test -f ${PREFIX}/bin/cppp.x
-      - test -f ${PREFIX}/bin/cp.x
-      - test -f ${PREFIX}/bin/dos.x
-      - test -f ${PREFIX}/bin/dvscf_q2r.x
-      - test -f ${PREFIX}/bin/dynmat.x
-      - test -f ${PREFIX}/bin/epa.x
-      - test -f ${PREFIX}/bin/epsilon.x
-      - test -f ${PREFIX}/bin/ev.x
-      - test -f ${PREFIX}/bin/fermi_proj.x
-      - test -f ${PREFIX}/bin/fermi_velocity.x
-      - test -f ${PREFIX}/bin/fqha.x
-      - test -f ${PREFIX}/bin/fs.x
-      - test -f ${PREFIX}/bin/ibrav2cell.x
-      - test -f ${PREFIX}/bin/initial_state.x
-      - test -f ${PREFIX}/bin/kpoints.x
-      - test -f ${PREFIX}/bin/lambda.x
-      - test -f ${PREFIX}/bin/ld1.x
-      - test -f ${PREFIX}/bin/manycp.x
-      - test -f ${PREFIX}/bin/matdyn.x
-      - test -f ${PREFIX}/bin/molecularpdos.x
-      - test -f ${PREFIX}/bin/neb.x
-      - test -f ${PREFIX}/bin/open_grid.x
-      - test -f ${PREFIX}/bin/path_interpolation.x
-      - test -f ${PREFIX}/bin/pawplot.x
-      - test -f ${PREFIX}/bin/phcg.x
-      - test -f ${PREFIX}/bin/ph.x
-      - test -f ${PREFIX}/bin/plan_avg.x
-      - test -f ${PREFIX}/bin/plotband.x
-      - test -f ${PREFIX}/bin/plotproj.x
-      - test -f ${PREFIX}/bin/plotrho.x
-      - test -f ${PREFIX}/bin/pmw.x
-      - test -f ${PREFIX}/bin/postahc.x
-      - test -f ${PREFIX}/bin/ppacf.x
-      - test -f ${PREFIX}/bin/pp.x
-      - test -f ${PREFIX}/bin/projwfc.x
-      - test -f ${PREFIX}/bin/pw2bgw.x
-      - test -f ${PREFIX}/bin/pw2critic.x
-      - test -f ${PREFIX}/bin/pw2gw.x
-      - test -f ${PREFIX}/bin/pw2wannier90.x
-      - test -f ${PREFIX}/bin/pwcond.x
-      - test -f ${PREFIX}/bin/pwi2xsf.x
-      - test -f ${PREFIX}/bin/pw.x
-      - test -f ${PREFIX}/bin/q2qstar.x
-      - test -f ${PREFIX}/bin/q2r.x
-      - test -f ${PREFIX}/bin/scan_ibrav.x
-      - test -f ${PREFIX}/bin/sumpdos.x
-      - test -f ${PREFIX}/bin/upfconv.x
-      - test -f ${PREFIX}/bin/virtual_v2.x
-      - test -f ${PREFIX}/bin/wannier_ham.x
-      - test -f ${PREFIX}/bin/wannier_plot.x
-      - test -f ${PREFIX}/bin/wfck2r.x
-      - test -f ${PREFIX}/bin/wfdd.x
+  - package_contents:
+      bin:
+        - alpha2f.x
+        - average.x
+        - bands.x
+        - cell2ibrav.x
+        - cppp.x
+        - cp.x
+        - dos.x
+        - dvscf_q2r.x
+        - dynmat.x
+        - epa.x
+        - epsilon.x
+        - ev.x
+        - fermi_proj.x
+        - fermi_velocity.x
+        - fqha.x
+        - fs.x
+        - ibrav2cell.x
+        - initial_state.x
+        - kpoints.x
+        - lambda.x
+        - ld1.x
+        - manycp.x
+        - matdyn.x
+        - molecularpdos.x
+        - neb.x
+        - open_grid.x
+        - path_interpolation.x
+        - pawplot.x
+        - phcg.x
+        - ph.x
+        - plan_avg.x
+        - plotband.x
+        - plotproj.x
+        - plotrho.x
+        - pmw.x
+        - postahc.x
+        - ppacf.x
+        - pp.x
+        - projwfc.x
+        - pw2bgw.x
+        - pw2critic.x
+        - pw2gw.x
+        - pw2wannier90.x
+        - pwcond.x
+        - pwi2xsf.x
+        - pw.x
+        - q2qstar.x
+        - q2r.x
+        - scan_ibrav.x
+        - sumpdos.x
+        - upfconv.x
+        - virtual_v2.x
+        - wannier_ham.x
+        - wannier_plot.x
+        - wfck2r.x
+        - wfdd.x
     requirements:
       run:
         - python 3.12.*
