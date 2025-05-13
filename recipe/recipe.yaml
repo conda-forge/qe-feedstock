@@ -45,7 +45,7 @@ requirements:
     - "elpa * *${{ mpi_prefix }}_*"
     - fftw
     - fox
-    - libxc
+    - libxc <6
   run:
     - fftw
     - openmpi
