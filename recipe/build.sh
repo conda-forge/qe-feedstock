@@ -21,6 +21,7 @@ cmake .. \
     -DQE_ENABLE_HDF5=ON \
     -DQE_ENABLE_TEST=ON \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    -DCMAKE_EXE_LINKER_FLAGS="-fuse-ld=mold" \
     -DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated" \
     -DMPIEXEC_MAX_NUMPROCS=2  \
     -DTESTCODE_NPROCS=2
