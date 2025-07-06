@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: qe
-  version: 7.4
+  version: 7.4.1
   mpi: openmpi
   mpi_prefix: "mpi_${{ mpi }}"
 
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/QEF/q-e/archive/${{ name }}-${{ version }}.tar.gz
-  sha256: b15dcfe25f4fbf15ccd34c1194021e90996393478226e601d876f7dea481d104
+  sha256: 6ef9c53dbf0add2a5bf5ad2a372c0bff935ad56c4472baa001003e4f932cab97
 
 build:
   number: 0
