@@ -1,0 +1,5 @@
+c_compiler_version:         # [linux]
+  - 11                      # [linux]
+# both linux & osx use gfortran as a fortran compiler
+fortran_compiler_version:
+  - 11
