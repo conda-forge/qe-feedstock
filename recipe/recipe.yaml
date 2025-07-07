@@ -39,6 +39,7 @@ requirements:
     - libcblas
     - liblapack
     - liblapacke
+    - hdf5
     - "hdf5 * *${{ mpi_prefix }}_*"
     - openmpi
     - scalapack
