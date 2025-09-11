@@ -1,21 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
-- !!python/object/new:ruamel.yaml.scalarstring.SingleQuotedScalarString
-  args:
-  - '10.13'
-  state:
-  - null
-  - _yaml_anchor: &id001 !!python/object/new:ruamel.yaml.anchor.Anchor
-      state:
-      - null
-      - always_dump: false
-        value: null
+- '10.13'
 MACOSX_SDK_VERSION:
-- !!python/object/new:ruamel.yaml.scalarstring.SingleQuotedScalarString
-  args:
-  - '10.13'
-  state:
-  - null
-  - _yaml_anchor: *id001
+- '10.13'
 c_compiler:
 - clang
 c_compiler_version:
@@ -23,12 +9,7 @@ c_compiler_version:
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
-- !!python/object/new:ruamel.yaml.scalarstring.SingleQuotedScalarString
-  args:
-  - '10.13'
-  state:
-  - null
-  - _yaml_anchor: *id001
+- '10.13'
 channel_sources:
 - conda-forge
 channel_targets:
