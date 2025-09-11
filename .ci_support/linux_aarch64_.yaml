@@ -1,11 +1,20 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '11'
+- 11
 c_stdlib:
 - sysroot
 c_stdlib_version:
-- '2.17'
+- !!python/object/new:ruamel.yaml.scalarstring.SingleQuotedScalarString
+  args:
+  - '2.17'
+  state:
+  - null
+  - _yaml_anchor: !!python/object/new:ruamel.yaml.anchor.Anchor
+      state:
+      - null
+      - always_dump: false
+        value: null
 cdt_name:
 - conda
 channel_sources:
@@ -19,7 +28,7 @@ fftw:
 fortran_compiler:
 - gfortran
 fortran_compiler_version:
-- '11'
+- 11
 libblas:
 - 3.9.* *netlib
 libcblas:
@@ -29,7 +38,7 @@ liblapack:
 liblapacke:
 - 3.9.* *netlib
 openmpi:
-- '4'
+- '5'
 target_platform:
 - linux-aarch64
 zip_keys:
