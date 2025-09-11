@@ -14,9 +14,9 @@ c_stdlib:
     then: macosx_deployment_target
 c_stdlib_version:
   - if: linux
-    then: '2.17'
+    then: 2.17
   - if: osx
-    then: '10.13'
+    then: 10.13
 fortran_compiler:
   - if: linux
     then: gfortran
