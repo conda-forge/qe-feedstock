@@ -15,7 +15,7 @@ source:
   sha256: 7e1f7a9a21b63192f5135218bee20a5321b66582e4756536681b76e9c59b3cc8
 
 build:
-  number: 0
+  number: 2
   skip: win
   script: build.sh
 
@@ -27,6 +27,7 @@ requirements:
     - openmpi-mpifort
     - cmake >=3.18.0
     - make
+    - mold
     - m4
     - pkg-config
     - wget
