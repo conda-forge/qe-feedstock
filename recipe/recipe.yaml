@@ -15,7 +15,7 @@ source:
   sha256: 7e1f7a9a21b63192f5135218bee20a5321b66582e4756536681b76e9c59b3cc8
 
 build:
-  number: 0
+  number: 1
   skip: win
   script: build.sh
 
@@ -45,9 +45,7 @@ requirements:
     - "elpa * *${{ mpi_prefix }}_*"
     - fftw
     - fox
-    # libxc 5 conda-forge package currently does not include fortran bindings
-    # see https://github.com/conda-forge/libxc-feedstock/issues/15
-    #- libxc
+    - libxc <6
   run:
     - fftw
     - openmpi
