@@ -21,6 +21,8 @@ build:
 
 requirements:
   build:
+    - if: unix
+      then: gnuconfig
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('fortran') }}

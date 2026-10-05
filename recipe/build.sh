@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./install
 # Some tests are still failing (always check manually)
 # Put back `set -ex` once we can make all tests pass
 #set -ex
@@ -13,7 +15,7 @@ cd build
 
 # FOR MPIEXEC configuration, see https://cmake.org/cmake/help/v3.9/module/FindMPI.html
 
-cmake .. \
+cmake ${CMAKE_ARGS} .. \
     -DQE_ENABLE_MPI=ON \
     -DQE_ENABLE_OPENMP=ON \
     -DQE_ENABLE_SCALAPACK=ON \
@@ -39,7 +41,9 @@ export OMPI_MCA_plm_rsh_agent=sh
 # there are known test failures that will be addressed later
 # disable test for aarch64 for now it takes too long and timeout of build
 if [[ $(lscpu | awk '/Architecture:/{print $2}') != "aarch64" ]]; then 
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR:-}" != "" ]]; then
     ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
+fi
 else
     ctest -L "unit" --output-on-failure  || true
 fi
