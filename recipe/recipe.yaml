@@ -34,7 +34,6 @@ requirements:
       then: llvm-openmp
     - "elpa * *${{ mpi_prefix }}_*"
     - fftw
-    - fox
     - "hdf5 * *${{ mpi_prefix }}_*"
     - libblas
     - liblapack

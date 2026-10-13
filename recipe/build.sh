@@ -2,13 +2,20 @@
 # Some tests are still failing (always check manually)
 set -ex
 
+# On macOS, libgomp is provided by llvm-openmp (libomp), which lacks the GOMP
+# offload entry points that gfortran emits for EPW's "!$omp target" constructs
+if [[ ${target_platform} == osx-* ]]; then
+  ${CC} ${CFLAGS} -c ${RECIPE_DIR}/gomp_target_stubs.c -o ${SRC_DIR}/gomp_target_stubs.o
+  export LDFLAGS="${LDFLAGS} ${SRC_DIR}/gomp_target_stubs.o"
+fi
+
 mkdir build
 cd build
 
 cmake .. \
   ${CMAKE_ARGS} \
   -DQE_ENABLE_ELPA=ON \
-  -DQE_FOX_INTERNAL=OFF \
+  -DQE_FOX_INTERNAL=ON \
   -DQE_ENABLE_HDF5=ON \
   -DQE_ENABLE_LIBXC=OFF \
   -DQE_ENABLE_MPI=ON \
@@ -23,12 +30,13 @@ cmake --build . --parallel "${CPU_COUNT}"
 export OMPI_MCA_plm_rsh_agent=sh
 export OMP_NUM_THREADS=1
 
-# There are known test failures that will be addressed later
-# disable test for aarch64 for now it takes too long and timeout of build
-if [[ ${target_platform} != "linux-aarch64" ]]; then
-    ctest -L "pw|cp|unit" -LE epw --output-on-failure  || true
-else
-    ctest -L "unit" --output-on-failure  || true
+# Run the full test set for native builds, only the unit tests for the
+# linux-aarch64 cross build (executed via QEMU), and skip tests otherwise
+# (e.g. osx-arm64 on osx-64 cannot execute the target binaries)
+if [[ "${target_platform}" == "${build_platform:-${target_platform}}" ]]; then
+  ctest -L "pw|cp|unit" -LE epw --output-on-failure || true
+elif [[ "${target_platform}" == "linux-aarch64" ]]; then
+  ctest -L "unit" -LE epw --output-on-failure || true
 fi
 
 cmake --install .
