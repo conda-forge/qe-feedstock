@@ -3,7 +3,7 @@ About qe-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/qe-feedstock/blob/main/LICENSE.txt)
 
-Home: http://www.quantum-espresso.org/
+Home: https://www.quantum-espresso.org/
 
 Package license: GPL-2.0-only
 
@@ -11,7 +11,7 @@ Summary: QUANTUM ESPRESSO (opEn-Source Package for Research in Electronic Struct
 
 Development: https://github.com/QEF/q-e
 
-Documentation: http://www.quantum-espresso.org/Doc/user_guide/
+Documentation: https://www.quantum-espresso.org/Doc/user_guide/
 
 QUANTUM ESPRESSO is an integrated suite of Open-Source computer
 codes for electronic-structure calculations and materials modeling
@@ -22,7 +22,14 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/qe-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/qe-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -36,20 +43,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9414&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qe-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9414&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/qe-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9414&branchName=main">
@@ -81,31 +74,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `qe` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install qe
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install qe
 ```
 
-It is possible to list all of the versions of `qe` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add qe
+# for installing globally
+pixi global install qe
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `qe` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search qe --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search qe --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search qe --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -117,6 +152,8 @@ mamba repoquery whoneeds qe --channel conda-forge
 # List dependencies of `qe`:
 mamba repoquery depends qe --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -188,6 +225,7 @@ Feedstock Maintainers
 * [@certik](https://github.com/certik/)
 * [@jan-janssen](https://github.com/jan-janssen/)
 * [@ltalirz](https://github.com/ltalirz/)
+* [@mkrack](https://github.com/mkrack/)
 * [@unkcpz](https://github.com/unkcpz/)
 * [@wolfv](https://github.com/wolfv/)
 

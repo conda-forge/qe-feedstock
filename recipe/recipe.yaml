@@ -1,58 +1,45 @@
 schema_version: 1
 
 context:
-  name: qe
-  version: "7.5"
-  mpi: openmpi
+  name: "qe"
+  version: "7.6"
+  mpi: "openmpi"
   mpi_prefix: "mpi_${{ mpi }}"
 
 package:
-  name: ${{ name|lower }}
+  name: ${{ name }}
   version: ${{ version }}
 
 source:
   url: https://github.com/QEF/q-e/archive/${{ name }}-${{ version }}.tar.gz
-  sha256: 7e1f7a9a21b63192f5135218bee20a5321b66582e4756536681b76e9c59b3cc8
+  sha256: "945c8f16ab330c8f0b30f4de1a9a088b85038476fcd819394e641f4d2d8b7d51"
 
 build:
-  number: 2
+  number: 0
   skip: win
-  script: build.sh
 
 requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('fortran') }}
-    - openmpi-mpifort
+    - ${{ mpi }}
     - cmake >=3.18.0
     - make
-    - m4
     - pkg-config
     - wget
-    - if: linux
-      then: libgomp
+  host:
+    - ${{ mpi }}
     - if: osx
       then: llvm-openmp
-  host:
-    - libblas
-    - libcblas
-    - liblapack
-    - liblapacke
-    - "hdf5 * *${{ mpi_prefix }}_*"
-    - openmpi
-    - scalapack
     - "elpa * *${{ mpi_prefix }}_*"
     - fftw
     - fox
-    # libxc 5 conda-forge package currently does not include fortran bindings
-    # see https://github.com/conda-forge/libxc-feedstock/issues/15
-    #- libxc
-  run:
-    - fftw
-    - openmpi
+    - "hdf5 * *${{ mpi_prefix }}_*"
+    - libblas
+    - liblapack
+    # - libxc
     - scalapack
-    - elpa
 
 tests:
   - package_contents:
@@ -123,9 +110,9 @@ about:
     codes for electronic-structure calculations and materials modeling
     at the nanoscale. It is based on density-functional theory, plane
     waves, and pseudopotentials.
-  homepage: http://www.quantum-espresso.org
+  homepage: https://www.quantum-espresso.org
   repository: https://github.com/QEF/q-e
-  documentation: http://www.quantum-espresso.org/Doc/user_guide/
+  documentation: https://www.quantum-espresso.org/Doc/user_guide/
 
 extra:
   recipe-maintainers:
@@ -134,3 +121,4 @@ extra:
     - wolfv
     - ltalirz
     - unkcpz
+    - mkrack
