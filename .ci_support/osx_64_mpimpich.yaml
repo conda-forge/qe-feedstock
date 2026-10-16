@@ -28,6 +28,10 @@ llvm_openmp:
 - '21'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+mpi:
+- mpich
+mpich:
+- '4'
 openmpi:
 - '5'
 target_platform:
@@ -35,3 +39,5 @@ target_platform:
 zip_keys:
 - - c_compiler_version
   - fortran_compiler_version
+zlib:
+- '1'

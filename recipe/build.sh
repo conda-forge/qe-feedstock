@@ -12,8 +12,15 @@ fi
 mkdir build
 cd build
 
+MPI_CMAKE_ARGS=()
+if [[ "${mpi}" == "openmpi" ]]; then
+  MPI_CMAKE_ARGS+=(-DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated")
+  export OMPI_MCA_plm_rsh_agent=sh
+fi
+
 cmake .. \
   ${CMAKE_ARGS} \
+  "${MPI_CMAKE_ARGS[@]}" \
   -DQE_ENABLE_ELPA=ON \
   -DQE_FOX_INTERNAL=ON \
   -DQE_ENABLE_HDF5=ON \
@@ -22,12 +29,10 @@ cmake .. \
   -DQE_ENABLE_OPENMP=ON \
   -DQE_ENABLE_SCALAPACK=ON \
   -DQE_ENABLE_TEST=ON \
-  -DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated" \
-  -DMPIEXEC_MAX_NUMPROCS=2  \
+  -DMPIEXEC_MAX_NUMPROCS=2 \
   -DTESTCODE_NPROCS=2
 cmake --build . --parallel "${CPU_COUNT}"
 
-export OMPI_MCA_plm_rsh_agent=sh
 export OMP_NUM_THREADS=1
 
 # Run the full test set for native builds, only the unit tests for the

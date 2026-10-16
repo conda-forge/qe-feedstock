@@ -3,8 +3,9 @@ schema_version: 1
 context:
   name: "qe"
   version: "7.6"
-  mpi: "openmpi"
   mpi_prefix: "mpi_${{ mpi }}"
+  # Prefer the openmpi variant by default
+  build_number: ${{ 1 + (100 if mpi == "openmpi" else 0) }}
 
 package:
   name: ${{ name }}
@@ -15,7 +16,8 @@ source:
   sha256: "945c8f16ab330c8f0b30f4de1a9a088b85038476fcd819394e641f4d2d8b7d51"
 
 build:
-  number: 0
+  number: ${{ build_number }}
+  string: ${{ mpi_prefix }}_h${{ hash }}_${{ build_number }}
   skip: win
 
 requirements:
@@ -39,6 +41,7 @@ requirements:
     - liblapack
     # - libxc
     - scalapack
+    - zlib
 
 tests:
   - package_contents:
