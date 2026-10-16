@@ -16,6 +16,8 @@ MPI_CMAKE_ARGS=()
 if [[ "${mpi}" == "openmpi" ]]; then
   MPI_CMAKE_ARGS+=(-DMPIEXEC_PREFLAGS="--oversubscribe;--bind-to;none;-mca;plm;isolated")
   export OMPI_MCA_plm_rsh_agent=sh
+elif [[ "${mpi}" == "mpich" ]]; then
+  MPI_CMAKE_ARGS+=(-DMPIEXEC_PREFLAGS="-bind-to;none")
 fi
 
 cmake .. \
