@@ -1,0 +1,12 @@
+hdf5:
+  - 2
+
+mpi:
+  - mpich
+  - openmpi
+
+mpich:
+  - 5
+
+openmpi:
+  - 5
