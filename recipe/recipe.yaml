@@ -5,7 +5,7 @@ context:
   version: "7.6"
   mpi_prefix: "mpi_${{ mpi }}"
   # Prefer the openmpi variant by default
-  build_number: 1
+  build_number: ${{ 2 + (100 if mpi == "openmpi" else 0) }}
 
 package:
   name: ${{ name }}
