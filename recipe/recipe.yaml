@@ -35,10 +35,10 @@ requirements:
   host:
     - ${{ mpi }}
     - if: linux
-      then: _openmp_mutex
+      then: _openmp_mutex * *_llvm
     - if: osx
       then: llvm-openmp
-    - "elpa * *${{ mpi_prefix }}_*"
+    - "elpa >=2026.02.002 *${{ mpi_prefix }}_*"
     - fftw
     - "hdf5 * *${{ mpi_prefix }}_*"
     - libblas
