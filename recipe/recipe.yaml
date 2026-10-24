@@ -5,7 +5,7 @@ context:
   version: "7.6"
   mpi_prefix: "mpi_${{ mpi }}"
   # Prefer the openmpi variant by default
-  build_number: ${{ 3 + (100 if mpi == "openmpi" else 0) }}
+  build_number: ${{ 4 + (100 if mpi == "openmpi" else 0) }}
 
 package:
   name: ${{ name }}
@@ -19,6 +19,8 @@ build:
   number: ${{ build_number }}
   string: ${{ mpi_prefix }}_h${{ hash }}_${{ build_number }}
   skip: win
+  dynamic_linking:
+    overlinking_behavior: error
 
 requirements:
   build:
@@ -32,9 +34,11 @@ requirements:
     - wget
   host:
     - ${{ mpi }}
+    - if: linux
+      then: _openmp_mutex * *_llvm
     - if: osx
       then: llvm-openmp
-    - "elpa * *${{ mpi_prefix }}_*"
+    - "elpa >=2026.02.002 *${{ mpi_prefix }}_*"
     - fftw
     - "hdf5 * *${{ mpi_prefix }}_*"
     - libblas
@@ -43,9 +47,24 @@ requirements:
     - scalapack
     - zlib
   run:
+    - if: linux
+      then: _openmp_mutex
     - ${{ pin_compatible("elpa", upper_bound="x.x.x", build=mpi_prefix ~ "_*") }}
 
 tests:
+  # Check that all shared libraries needed by the binaries are provided
+  # by the run dependencies
+  - script:
+      - if: linux and target_platform == build_platform
+        then:
+          - |
+            rc=0
+            for f in ${PREFIX}/bin/*.x; do
+              if ldd "$f" | grep -q "not found"; then
+                echo "Missing libraries for $f:"; ldd "$f" | grep "not found"; rc=1
+              fi
+            done
+            exit $rc
   - package_contents:
       bin:
         - alpha2f.x

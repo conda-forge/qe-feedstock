@@ -1,7 +1,8 @@
 /*
  * Host-fallback implementations of the GOMP offload entry points emitted by
  * gfortran for "!$omp target" constructs (used unconditionally in EPW).
- * On macOS, conda-forge's libgomp is a symlink to LLVM libomp, which does not
+ * On macOS, and on Linux with the kmp_llvm variant of _openmp_mutex,
+ * conda-forge's libgomp is a symlink to LLVM libomp, which does not
  * export these symbols. Without an offload device, the semantics are:
  * run the target region on the host and treat data mapping as a no-op.
  */

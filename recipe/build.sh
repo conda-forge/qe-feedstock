@@ -2,12 +2,12 @@
 # Some tests are still failing (always check manually)
 set -ex
 
-# On macOS, libgomp is provided by llvm-openmp (libomp), which lacks the GOMP
-# offload entry points that gfortran emits for EPW's "!$omp target" constructs
-if [[ ${target_platform} == osx-* ]]; then
-  ${CC} ${CFLAGS} -c ${RECIPE_DIR}/gomp_target_stubs.c -o ${SRC_DIR}/gomp_target_stubs.o
-  export LDFLAGS="${LDFLAGS} ${SRC_DIR}/gomp_target_stubs.o"
-fi
+# libgomp may be provided by llvm-openmp (libomp) at runtime (always on macOS,
+# on Linux with the kmp_llvm variant of _openmp_mutex), which lacks the GOMP
+# offload and teams entry points that gfortran emits for EPW's "!$omp target"
+# and "!$omp teams" constructs
+${CC} ${CFLAGS} -c ${RECIPE_DIR}/gomp_target_stubs.c -o ${SRC_DIR}/gomp_target_stubs.o
+export LDFLAGS="${LDFLAGS} ${SRC_DIR}/gomp_target_stubs.o"
 
 mkdir build
 cd build
